@@ -31,13 +31,19 @@ public class Usuario extends Model{
 	public String UF;
 	
 	@Required
+	public String CEP;
+	
+	@Required
 	public String Bairro;
 	
 	@Required
 	public String email;
-	
+
 	@Required
 	public String senha;
 	
 	public static Finder<Long,Usuario> find = new Finder<Long,Usuario>(Usuario.class);
+	
+	
+	
 }
