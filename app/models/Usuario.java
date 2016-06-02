@@ -33,6 +33,8 @@ public class Usuario extends Model{
 	@Required
 	public String CEP;
 	
+	
+	
 	@Required
 	public String Bairro;
 	
