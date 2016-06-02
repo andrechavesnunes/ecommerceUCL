@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class FormaPagamento extends Model{
+public class Transportadora extends Model{
 	@Id
 	@GeneratedValue
 	public long Id;
@@ -19,9 +19,7 @@ public class FormaPagamento extends Model{
 	@Required
 	public String Nome;
 	
-	@Required
-	public Integer Parcelas;
+	public String CNPJ;
 	
-	public static Finder<Long,FormaPagamento> find = new Finder<Long,FormaPagamento>(FormaPagamento.class);
-
+	public static Finder<Long,Transportadora> find = new Finder<Long,Transportadora>(Transportadora.class);
 }
