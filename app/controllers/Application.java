@@ -13,7 +13,7 @@ public class Application extends Controller {
 	private final Form<Categoria> formIndex = Form.form(Categoria.class);
     public Result index() {
     	List<Categoria> categorias = Categoria.find.all();
-    	return ok(index.render("Bem vindo ao Planeta Geek",categorias));
+    	List<Produto> produtos = Produto.find.all();
+    	return ok(index.render("Bem vindo ao Planeta Geek",categorias,produtos));
     }
-
 }
