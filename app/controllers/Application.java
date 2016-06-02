@@ -14,6 +14,8 @@ public class Application extends Controller {
     public Result index() {
     	List<Categoria> categorias = Categoria.find.all();
     	return ok(index.render("Bem vindo ao Planeta Geek",categorias));
+    	
+    	
     }
 
 }
