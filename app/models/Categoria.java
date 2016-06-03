@@ -9,6 +9,7 @@ import com.avaje.ebean.Model.Finder;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 public class Categoria extends Model{
 
