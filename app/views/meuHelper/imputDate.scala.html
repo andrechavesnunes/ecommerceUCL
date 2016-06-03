@@ -1,0 +1,11 @@
+@(label: String)
+
+			<label>@label </label>
+			<input type="date" class="datepicker">
+
+<script>
+$('.datepicker').pickadate({
+    selectMonths: true, // Criar um dropdown para controlar o mes
+    selectYears: 15 // Cria um dropdow para controlar anos.
+  });
+</script>

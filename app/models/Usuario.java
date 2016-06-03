@@ -31,9 +31,7 @@ public class Usuario extends Model{
 	public String UF;
 	
 	@Required
-	public String CEP;
-	
-	
+	public String C;
 	
 	@Required
 	public String Bairro;
