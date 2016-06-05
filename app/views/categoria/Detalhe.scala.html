@@ -6,9 +6,9 @@
 	@meuHelper.meuFormPure("Categoria",routes.CategoriaController.salvar(id),"post") {
 		<fieldset>
 		<legend>Categoria (@formCategoria("Id").valueOr("Novo"))</legend>
-			@meuHelper.ImputText("Nome", formCategoria("nome").value, "Nome:")
+			@meuHelper.InputText("Nome", formCategoria("nome").value, "Nome:")
 		</fieldset>
-		<input type="submit" class="btn btn-primary" value="Salvar">
-		<a class="btn" href="@routes.CategoriaController.lista()">Cancelar</a>
+		<input type="submit" class="button" value="Salvar">
+		<a href="@routes.CategoriaController.lista()" class="button"> Cancelar</a>
 	}
 }

@@ -17,7 +17,7 @@
 				<tr>
 					<td><a href="@routes.CategoriaController.detalhes(categoria.id)">@categoria.id</a></td>
 					<td><a href="@routes.CategoriaController.detalhes(categoria.id)">@categoria.nome</a></td>
-					<td><a class = "button-warning" href="@routes.CategoriaController.delete(categoria.id)">Remover</a></td>
+				<td><a href="@routes.CategoriaController.delete(categoria.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
 				</tr>
 			}
 			</tbody>

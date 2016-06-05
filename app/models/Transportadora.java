@@ -14,12 +14,12 @@ import java.util.List;
 public class Transportadora extends Model{
 	@Id
 	@GeneratedValue
-	public long Id;
+	public long id;
 	
 	@Required
-	public String Nome;
+	public String nome;
 	
-	public String CNPJ;
+	public String cnpj;
 	
 	public static Finder<Long,Transportadora> find = new Finder<Long,Transportadora>(Transportadora.class);
 }

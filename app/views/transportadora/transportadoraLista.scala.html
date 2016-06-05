@@ -1,0 +1,32 @@
+@(mensagem: String, categoria: List[Categoria], transportadora: List[Transportadora])
+
+@main(mensagem,categoria){
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<h1>@mensagem</h1>
+<div>
+	<table class="pure-table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NOME</th>
+				<th>CNPJ</th>
+			</tr>
+		</thead>
+		<tbody>
+		@for(transportadora <- transportadora) {
+			<tr>
+				<td><a href="@routes.TransportadoraController.detalhes(transportadora.id)">@transportadora.id</a></td>	
+				<td><a href="@routes.TransportadoraController.detalhes(transportadora.id)">@transportadora.nome</a></td>
+				<td><a href="@routes.TransportadoraController.detalhes(transportadora.id)">@transportadora.cnpj</a></td>
+				<td><a href="@routes.TransportadoraController.remover(transportadora.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
+			</tr>
+			
+		}
+		</tbody>
+	</table>
+	<a href="/transportadora/novo" class="button">Novo</a>
+</div>
+
+}
