@@ -18,7 +18,7 @@ public class Categoria extends Model{
 	public Long id;
 	
 	@Required
-	public String Nome;
+	public String nome;
 	
 	public static Finder<Long,Categoria> find = new Finder<Long,Categoria>(Categoria.class);
 	

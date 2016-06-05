@@ -1,0 +1,7 @@
+@(nome: String, acao: play.api.mvc.Call, metodo: String)(conteudo: Html)
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<form name="@nome" action="@acao" method="@metodo" class="pure-form pure-form-stacked">
+
+	@conteudo
+
+</form>
