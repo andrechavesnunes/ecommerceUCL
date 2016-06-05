@@ -1,0 +1,17 @@
+@(formTransportadora: Form[Transportadora], id: Long, mensagem: String, categoria: List[Categoria])
+@import meuHelper._
+@main(mensagem,categoria) {
+<div>
+	<h4>@mensagem</h4>
+	@meuHelper.meuForm("transportadora", routes.TransportadoraController.salvar(id), "post"){
+		<fieldset>
+		<legend>transportadora (@formTransportadora("nome").valueOr("Novo"))</legend>
+		@meuHelper.InputText("nome", formTransportadora("nome").value, "Nome:")
+		@meuHelper.InputText("cnpj", formTransportadora("cnpj").value, "CNPJ:")
+        
+		</fieldset>
+		<input type="submit" class="btn btn-primary" value="Salvar">
+		<a href="@routes.TransportadoraController.lista()"><button type="button" class="btn btn-primary-outline">Cancelar</button></a>
+	}
+</div>	
+}

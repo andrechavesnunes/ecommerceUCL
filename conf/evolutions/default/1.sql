@@ -73,7 +73,7 @@ create table usuario (
   endereco                  varchar(255),
   cidade                    varchar(255),
   uf                        varchar(255),
-  cep                       varchar(255),
+  c                         varchar(255),
   bairro                    varchar(255),
   email                     varchar(255),
   senha                     varchar(255),

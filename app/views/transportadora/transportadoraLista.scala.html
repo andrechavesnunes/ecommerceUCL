@@ -1,0 +1,35 @@
+@(mensagem: String, categoria: List[Categoria], transportadora: List[Transportadora])
+
+@main(mensagem,categoria){
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<h4>@mensagem</h4>
+<a href="/transportadora/novo"><button type="button" class="btn btn-primary-outline">Novo</button></a>
+<br>
+<br>
+<div>
+	<table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NOME</th>
+				<th>CNPJ</th>
+			</tr>
+		</thead>
+		<tbody>
+		@for(transportadora <- transportadora) {
+			<tr>
+				<td>@transportadora.id</td>
+				<td>@transportadora.nome</td>
+				<td>@transportadora.cnpj</td>
+				<td><a href="@routes.TransportadoraController.detalhes(transportadora.id)"><input type="submit" class="btn btn-primary" value="Editar"></a></td>
+				<td><a href="@routes.TransportadoraController.remover(transportadora.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
+			</tr>
+			
+		}
+		</tbody>
+	</table>
+</div>
+
+}
