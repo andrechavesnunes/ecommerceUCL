@@ -1,0 +1,32 @@
+@(mensagem: String, categoria: List[Categoria], formaPagamento: List[FormaPagamento])
+
+@main(mensagem,categoria){
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<h1>@mensagem</h1>
+<div>
+	<table class="pure-table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NOME</th>
+				<th>PARCELAS</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		@for(formaPagamento <- formaPagamento) {
+			<tr>
+				<td><a href="@routes.FormaPagamentoController.detalhes(formaPagamento.id)">@formaPagamento.id</a></td>	
+				<td><a href="@routes.FormaPagamentoController.detalhes(formaPagamento.id)">@formaPagamento.nome</a></td>
+				<td><a href="@routes.FormaPagamentoController.detalhes(formaPagamento.id)">@formaPagamento.parcelas</a></td>
+				<td><a href="@routes.FormaPagamentoController.remover(formaPagamento.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
+			</tr>			
+		}
+		</tbody>
+	</table>
+	<a href="/formaPagamento/novo" class="button">Novo</a>
+</div>
+
+}

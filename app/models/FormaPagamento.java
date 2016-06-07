@@ -14,13 +14,13 @@ import java.util.List;
 public class FormaPagamento extends Model{
 	@Id
 	@GeneratedValue
-	public long Id;
+	public long id;
 	
 	@Required
-	public String Nome;
+	public String nome;
 	
 	@Required
-	public Integer Parcelas;
+	public Integer parcelas;
 	
 	public static Finder<Long,FormaPagamento> find = new Finder<Long,FormaPagamento>(FormaPagamento.class);
 

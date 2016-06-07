@@ -1,0 +1,20 @@
+@(formFormaPagamento: Form[FormaPagamento], id: Long, mensagem: String, categoria: List[Categoria])
+@import meuHelper._
+@main(mensagem,categoria) {
+<div>
+	<h1>@mensagem</h1>
+	@meuHelper.meuFormPure("formaPagamento", routes.FormaPagamentoController.salvar(id), "post"){
+		<fieldset>
+		
+		<legend>Forma de Pagamento (@formFormaPagamento("nome").valueOr("Novo"))</legend>
+		
+		@meuHelper.InputText("nome", formFormaPagamento("nome").value, "Nome:")
+		@meuHelper.InputText("parcelas", formFormaPagamento("parcelas").value, "Parcelas:")
+        
+		</fieldset>
+		
+		<input type="submit" class="button" value="Salvar">
+		<a href="@routes.FormaPagamentoController.lista()" class="button"> Cancelar</a>
+	}
+</div>	
+}

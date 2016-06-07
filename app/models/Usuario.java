@@ -9,32 +9,36 @@ import com.avaje.ebean.Model;
 import com.avaje.ebean.Model.Finder;
 import java.util.ArrayList;
 import java.util.List;
+
 @Entity
 public class Usuario extends Model{
 	@Id
 	@GeneratedValue
-	public long Id;
+	public long id;
 	
 	@Required
-	public String Nome;
+	public String nome;
 	
 	@Required
-	public String Cnpjcpf;
+	public String cpf;
 	
 	@Required
-	public String Endereco;
+	public String logradouro;
 	
 	@Required
-	public String Cidade;
+	public String numero;
 	
 	@Required
-	public String UF;
+	public String bairro;
 	
 	@Required
-	public String C;
+	public String cidade;
 	
 	@Required
-	public String Bairro;
+	public String uf;
+	
+	@Required
+	public String cep;
 	
 	@Required
 	public String email;
@@ -42,8 +46,9 @@ public class Usuario extends Model{
 	@Required
 	public String senha;
 	
-	public static Finder<Long,Usuario> find = new Finder<Long,Usuario>(Usuario.class);
+	@Required
+	public boolean administrativo;
 	
-	
+	public static Finder<Long,Usuario> find = new Finder<Long,Usuario>(Usuario.class);	
 	
 }

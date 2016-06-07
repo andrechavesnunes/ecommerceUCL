@@ -1,0 +1,29 @@
+@(formUsuario: Form[Usuario], id: Long, mensagem: String, categoria: List[Categoria])
+@import meuHelper._
+@main(mensagem,categoria) {
+<div>
+	<h1>@mensagem</h1>
+	@meuHelper.meuFormPure("Usuario",routes.UsuarioController.salvar(id), "post"){
+		<fieldset>
+		
+		<legend>Usuario (@formUsuario("nome").valueOr("Novo"))</legend>
+		
+		@meuHelper.InputText("nome", formUsuario("nome").value, "Nome:")
+		@meuHelper.InputText("cpf", formUsuario("cpf").value, "CPF:")
+		@meuHelper.InputText("logradouro", formUsuario("nome").value, "Logradour:")
+		@meuHelper.InputText("numero", formUsuario("parcelas").value, "Número:")
+		@meuHelper.InputText("bairro", formUsuario("nome").value, "Bairro:")
+		@meuHelper.InputText("cidade", formUsuario("parcelas").value, "Cidade:")
+		@meuHelper.InputText("uf", formUsuario("nome").value, "UF:")
+		@meuHelper.InputText("cep", formUsuario("parcelas").value, "CEP:")
+		@meuHelper.InputText("email", formUsuario("nome").value, "E-mail:")
+		@meuHelper.InputText("senha", formUsuario("parcelas").value, "Senha:")
+		@meuHelper.checkbox("administrativo", formUsuario("administrativo").value, "Adm")
+		        
+		</fieldset>
+		
+		<input type="submit" class="button" value="Salvar">
+		<a href="@routes.UsuarioController.lista()" class="button"> Cancelar</a>
+	}
+</div>	
+}
