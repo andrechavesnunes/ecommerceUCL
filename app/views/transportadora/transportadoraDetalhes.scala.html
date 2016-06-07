@@ -5,7 +5,9 @@
 	<h1>@mensagem</h1>
 	@meuHelper.meuFormPure("transportadora", routes.TransportadoraController.salvar(id), "post"){
 		<fieldset>
+		
 		<legend>transportadora (@formTransportadora("nome").valueOr("Novo"))</legend>
+		
 		@meuHelper.InputText("nome", formTransportadora("nome").value, "Nome:")
 		@meuHelper.InputText("cnpj", formTransportadora("cnpj").value, "CNPJ:")
         

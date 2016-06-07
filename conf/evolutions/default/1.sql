@@ -69,14 +69,16 @@ create table transportadora (
 create table usuario (
   id                        bigint auto_increment not null,
   nome                      varchar(255),
-  cnpjcpf                   varchar(255),
-  endereco                  varchar(255),
+  cpf                       varchar(255),
+  logradouro                varchar(255),
+  numero                    varchar(255),
+  bairro                    varchar(255),
   cidade                    varchar(255),
   uf                        varchar(255),
-  c                         varchar(255),
-  bairro                    varchar(255),
+  cep                       varchar(255),
   email                     varchar(255),
   senha                     varchar(255),
+  administrativo            tinyint(1) default 0,
   constraint pk_usuario primary key (id))
 ;
 

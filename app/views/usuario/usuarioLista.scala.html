@@ -1,0 +1,50 @@
+@(mensagem: String, categoria: List[Categoria], usuario: List[Usuario])
+
+@main(mensagem,categoria){
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<h1>@mensagem</h1>
+<div>
+	<table class="pure-table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NOME</th>
+				<th>CPF</th>
+				<th>LOGRADOURO</th>
+				<th>NUMERO</th>
+				<th>BAIRRO</th>
+				<th>CIDADE</th>
+				<th>UF</th>
+				<th>CEP</th>
+				<th>EMAIL</th>
+				<th>SENHA</th>
+				<th>ADMINISTRATIVO</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		@for(usuario <- usuario) {
+			<tr>
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.id</a></td>	
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.nome</a></td>
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.cpf</a></td>
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.logradouro</a></td>
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.numero</a></td>
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.bairro</a></td>
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.cidade</a></td>
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.uf</a></td>
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.cep</a></td>
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.email</a></td>
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.senha</a></td>
+				<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.administrativo</a></td>
+				<td><a href="@routes.UsuarioController.remover(usuario.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
+			</tr>			
+		}
+		</tbody>
+	</table>
+	<a href="/usuario/novo" class="button">Novo</a>
+</div>
+
+}

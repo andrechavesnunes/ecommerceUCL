@@ -2,24 +2,47 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+#----------------------------------------------------------------------------------------------------
 # Home page
 GET     /                           controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               	controllers.Assets.versioned(path="/public", file: Asset)
 
-GET		/transportadora					controllers.TransportadoraController.lista()
+#----------------------------------------------------------------------------------------------------
+# Transportadora
 
+GET		/transportadora					controllers.TransportadoraController.lista()
 GET		/transportadora/novo			controllers.TransportadoraController.novaTransportadora()
 GET 	/transportadora/:id				controllers.TransportadoraController.detalhes(id: Long)
 POST 	/transportadora/				controllers.TransportadoraController.salvar(id: Long)
 GET		/transportadora/remover/:id 	controllers.TransportadoraController.remover(id: Long)
 
-
+#----------------------------------------------------------------------------------------------------
 #Categoria
 
-GET     /Categoria                 controllers.CategoriaController.lista()
-GET     /Categoria/Novo           	controllers.CategoriaController.Novo()
-POST    /Categoria                	controllers.CategoriaController.salvar(id: Long)
-GET     /Categoria/Detalhe/:id	  	controllers.CategoriaController.detalhes(id: Long)	
-GET     /Categoria/delete/:id	  	controllers.CategoriaController.delete(id: Long)
+GET     /Categoria                  	controllers.CategoriaController.lista()
+GET     /Categoria/Novo           		controllers.CategoriaController.Novo()
+POST    /Categoria                		controllers.CategoriaController.salvar(id: Long)
+GET     /Categoria/Detalhe/:id	  		controllers.CategoriaController.detalhes(id: Long)	
+GET     /Categoria/delete/:id	  		controllers.CategoriaController.delete(id: Long)
+
+#----------------------------------------------------------------------------------------------------
+#Forma de Pagamento
+
+GET		/formaPagamento					controllers.FormaPagamentoController.lista()
+GET		/formaPagamento/novo			controllers.FormaPagamentoController.novaFormaPagamento
+GET		/formaPagamento/:id				controllers.FormaPagamentoController.detalhes(id: Long)
+POST	/formaPagamento/				controllers.FormaPagamentoController.salvar(id : Long)
+GET 	/formaPagamento/remover/:id		controllers.FormaPagamentoController.remover(id: Long)
+
+#----------------------------------------------------------------------------------------------------
+#Usuário
+
+GET		/usuario						controllers.UsuarioController.lista()
+GET 	/usuario/novo					controllers.UsuarioController.novoUsuario
+GET		/usuario/:id					controllers.UsuarioController.detalhes(id: Long)
+POST	/usuario/						controllers.UsuarioController.salvar(id: Long)
+GET		/usuario/remover/:id			controllers.UsuarioController.remover(id : Long)
+
+#----------------------------------------------------------------------------------------------------
