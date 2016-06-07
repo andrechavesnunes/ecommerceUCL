@@ -1,0 +1,20 @@
+@(formFornecedor: Form[Fornecedor],categorias: List[Categoria],id:Long)
+@import helper._
+@main("Formulário de Fornecedor",categorias) {
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<h1>Formulário de Fornecedor</h1>
+	@meuHelper.meuFormPure("Fornecedor",routes.FornecedorController.salvar(id),"post") {
+		<fieldset>
+		<legend>Fornecedor (@formFornecedor("Id").valueOr("Novo"))</legend>
+			@meuHelper.InputText("nome", formFornecedor("nome").value, "Nome:")
+			@meuHelper.InputText("cnpj", formFornecedor("cnpj").value, "CNPJ:")
+			@meuHelper.InputText("ie", formFornecedor("ie").value, "Inscrição Estadual:")
+			@meuHelper.InputText("bairro", formFornecedor("bairro").value, "bairro:")
+			@meuHelper.InputText("cidade", formFornecedor("cidade").value, "Cidade:")
+			@meuHelper.InputText("endereco", formFornecedor("endereco").value, "Endereço:")
+			@meuHelper.InputText("uf", formFornecedor("uf").value, "UF:")
+		</fieldset>
+		<input type="submit" class="button" value="Salvar">
+		<a href="@routes.FornecedorController.lista()" class="button"> Cancelar</a>
+	}
+}
