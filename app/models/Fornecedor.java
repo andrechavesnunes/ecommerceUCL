@@ -12,23 +12,23 @@ import java.util.List;
 public class Fornecedor extends Model{
 	@Id
 	@GeneratedValue
-	public long Id;
+	public long id;
 	
 	@Required
-	public String Nome;
+	public String nome;
 	
 	@Required
-	public String Cnpj;
+	public String cnpj;
 	
-	public String Ie;
+	public String ie;
 	
-	public String Endereco;
+	public String endereco;
 	
-	public String Cidade;
+	public String cidade;
 	
-	public String Uf;
+	public String uf;
 	
-	public String Bairro;
+	public String bairro;
 	
 	public static Finder<Long,Fornecedor> find = new Finder<Long,Fornecedor>(Fornecedor.class);
 }

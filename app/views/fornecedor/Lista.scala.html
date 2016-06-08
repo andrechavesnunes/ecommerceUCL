@@ -21,15 +21,15 @@
 			<tbody>
 			@for(fornecedor <- fornecedores) {
 				<tr>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.Id)">@fornecedor.Id</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.Id)">@fornecedor.nome</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.Id)">@fornecedor.cnpj</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.Id)">@fornecedor.ie</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.Id)">@fornecedor.bairro</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.Id)">@fornecedor.cidade</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.Id)">@fornecedor.endereco</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.Id)">@fornecedor.uf</a></td>
-				<td><a href="@routes.FornecedorController.delete(fornecedor.Id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.id</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.nome</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.cnpj</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.ie</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.bairro</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.cidade</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.endereco</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.uf</a></td>
+				<td><a href="@routes.FornecedorController.delete(fornecedor.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
 				</tr>
 			}
 			</tbody>

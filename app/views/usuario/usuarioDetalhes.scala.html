@@ -3,6 +3,7 @@
 @main(mensagem,categoria) {
 <div>
 	<h1>@mensagem</h1>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	@meuHelper.meuFormPure("Usuario",routes.UsuarioController.salvar(id), "post"){
 		<fieldset>
 		
@@ -10,14 +11,14 @@
 		
 		@meuHelper.InputText("nome", formUsuario("nome").value, "Nome:")
 		@meuHelper.InputText("cpf", formUsuario("cpf").value, "CPF:")
-		@meuHelper.InputText("logradouro", formUsuario("nome").value, "Logradour:")
-		@meuHelper.InputText("numero", formUsuario("parcelas").value, "Número:")
-		@meuHelper.InputText("bairro", formUsuario("nome").value, "Bairro:")
-		@meuHelper.InputText("cidade", formUsuario("parcelas").value, "Cidade:")
-		@meuHelper.InputText("uf", formUsuario("nome").value, "UF:")
-		@meuHelper.InputText("cep", formUsuario("parcelas").value, "CEP:")
-		@meuHelper.InputText("email", formUsuario("nome").value, "E-mail:")
-		@meuHelper.InputText("senha", formUsuario("parcelas").value, "Senha:")
+		@meuHelper.InputText("logradouro", formUsuario("logradouro").value, "Logradour:")
+		@meuHelper.InputText("numero", formUsuario("numero").value, "NÃºmero:")
+		@meuHelper.InputText("bairro", formUsuario("bairro").value, "Bairro:")
+		@meuHelper.InputText("cidade", formUsuario("cidade").value, "Cidade:")
+		@meuHelper.InputText("uf", formUsuario("uf").value, "UF:")
+		@meuHelper.InputText("cep", formUsuario("cep").value, "CEP:")
+		@meuHelper.InputText("email", formUsuario("email").value, "E-mail:")
+		@meuHelper.InputText("senha", formUsuario("senha").value, "Senha:")
 		@meuHelper.checkbox("administrativo", formUsuario("administrativo").value, "Adm")
 		        
 		</fieldset>

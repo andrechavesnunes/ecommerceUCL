@@ -1,12 +1,11 @@
 package controllers;
-import play.mvc.Result;
+
 import play.data.Form;
-import play.data.DynamicForm;
 import play.mvc.Controller;
+import play.mvc.Result;
 import java.util.List;
-import models.Fornecedor;
-import models.Transportadora;
 import models.Categoria;
+import models.Fornecedor;
 
 public class FornecedorController extends Controller{
 	private final Form<Fornecedor> formfornecedor = Form.form(Fornecedor.class);
@@ -33,7 +32,7 @@ public class FornecedorController extends Controller{
 			
 		Fornecedor fornecedor = formEnviado.get();
 		Fornecedor fornecedorOld = Fornecedor.find.byId(id);
-		if(fornecedorOld != null){
+		if(fornecedorOld != null && fornecedor != null){
 			fornecedor.update();
 		} else {
 			fornecedor.save();
@@ -48,15 +47,13 @@ public class FornecedorController extends Controller{
 		Fornecedor fornecedor = Fornecedor.find.byId(id);
 		List<Categoria> categoria = Categoria.find.all();
 		
-		String mensagem = "Novo Fornecedor";
-		
 		if (fornecedor == null) {
 		 return notFound(String.format("Fornecedor %s não existe.", id));
 		}
-		System.out.println(fornecedor);
+		
 		Form<Fornecedor> formPreenchido = formfornecedor.fill(fornecedor);
 
-		return ok(views.html.fornecedor.Detalhe.render(formPreenchido,categoria,fornecedor.Id));
+		return ok(views.html.fornecedor.Detalhe.render(formPreenchido,categoria,fornecedor.id));
 	}
 	public Result delete(long id){
 		
