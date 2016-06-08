@@ -1,0 +1,39 @@
+@(message: String,categorias: List[Categoria],fornecedores:List[Fornecedor])
+@main(message,categorias) {
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="@routes.Assets.versioned("Custom/css/tables.css")" rel="stylesheet" type="text/css" media="all"/>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	<h1>@message</h1>
+	<div class="pure-table">
+		<table>
+			<thead>
+				<tr>
+					<th>Código</th>
+					<th>Nome</th>
+					<th>CNPJ</th>
+					<th>IE</th>
+					<th>Bairro</th>
+					<th>Cidade</th>
+					<th>Endereco</th>
+					<th>UF</th>
+				</tr>
+			</thead>
+			<tbody>
+			@for(fornecedor <- fornecedores) {
+				<tr>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.id</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.nome</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.cnpj</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.ie</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.bairro</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.cidade</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.endereco</a></td>
+					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.uf</a></td>
+				<td><a href="@routes.FornecedorController.delete(fornecedor.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
+				</tr>
+			}
+			</tbody>
+		</table>
+	</div>
+	<a href="/Fornecedor/Novo" class="button">Novo</a>
+}

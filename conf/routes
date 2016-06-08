@@ -46,3 +46,11 @@ POST	/usuario/						controllers.UsuarioController.salvar(id: Long)
 GET		/usuario/remover/:id			controllers.UsuarioController.remover(id : Long)
 
 #----------------------------------------------------------------------------------------------------
+
+#Fornecedor
+
+GET      /Fornecedor                controllers.FornecedorController.lista()
+GET     /Fornecedor/Novo           controllers.FornecedorController.Novo()
+POST    /Fornecedor                controllers.FornecedorController.salvar(id: Long)
+GET      /Fornecedor/Detalhe/:id	controllers.FornecedorController.detalhes(id: Long)	
+GET     /Fornecedor/delete/:id	  	controllers.FornecedorController.delete(id: Long)
