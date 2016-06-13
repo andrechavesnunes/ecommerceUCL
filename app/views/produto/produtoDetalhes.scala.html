@@ -1,0 +1,43 @@
+@(formProduto: Form[Produto], id: Long, mensagem: String, categoria:List[Categoria], fornecedor:List[Fornecedor])
+@import meuHelper._
+@mainAdm(mensagem) {
+<div>
+	<h1>@mensagem</h1>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	@meuHelper.meuFormPure("Produto",routes.ProdutoController.salvar(id), "post"){
+		<fieldset>
+		
+		<legend>Produto (@formProduto("descricao").valueOr("Novo"))</legend>
+		
+		@meuHelper.InputText("descricao", formProduto("descricao").value, "Descricao:")
+		@meuHelper.InputText("sobre", formProduto("sobre").value, "Sobre:")
+		@meuHelper.InputText("preco", formProduto("preco").value, "Preço:")
+		@meuHelper.InputText("imagem", formProduto("imagem").value, "Imagem:")
+		
+				</select>
+			    <br>
+			    <label>Categoria: </label>
+			    <select class="browser-default" name="categoria.id">
+			    	@for(categoria <- categoria){
+			        <option value="@(categoria.id)" @{if (formProduto("categoia.id") == categoria.id) "selected" else ""}>@(categoria.nome)</option>
+			      	}
+			    </select>
+			    
+				</select>
+			    <br>
+			    <label>Fornecedor: </label>
+			    <select class="browser-default" name="fornecedor.id">
+			    	@for(fornecedor <- fornecedor){
+			        <option value="@(fornecedor.id)" @{if (formProduto("fornecedor.id") == fornecedor.id) "selected" else ""}>@(fornecedor.nome)</option>
+			      	}
+			    </select>	
+		
+		@meuHelper.InputText("estoque", formProduto("estoque").value, "Estoque:")
+		        
+		</fieldset>
+		
+		<input type="submit" class="button" value="Salvar">
+		<a href="@routes.ProdutoController.lista()" class="button"> Cancelar</a>
+	}
+</div>	
+}

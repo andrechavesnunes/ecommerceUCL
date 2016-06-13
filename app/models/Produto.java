@@ -15,7 +15,7 @@ import java.util.List;
 public class Produto extends Model{
 	@Id
 	@GeneratedValue
-	public long Id;
+	public long id;
 	
 	@Required
 	public String descricao;
