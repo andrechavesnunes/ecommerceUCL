@@ -16,9 +16,8 @@ public class TransportadoraController extends Controller{
 	public Result lista()
 	{
 		List<Transportadora> transportadora = Transportadora.find.all();
-		List<Categoria> categoria = Categoria.find.all();
 		
-		return ok(views.html.transportadora.transportadoraLista.render("Listagem de Transportadora",categoria,transportadora));
+		return ok(views.html.transportadora.transportadoraLista.render("Listagem de Transportadora",transportadora));
 	
 	}
 	
@@ -26,16 +25,14 @@ public class TransportadoraController extends Controller{
 	public Result novaTransportadora()
 	{
 		String mensagem = "Nova Transportadora";
-		List<Categoria> categoria = Categoria.find.all();
 		
-		return ok(views.html.transportadora.transportadoraDetalhes.render(formTransportadora,new Long(0),mensagem,categoria));
+		return ok(views.html.transportadora.transportadoraDetalhes.render(formTransportadora,new Long(0),mensagem));
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
 	public Result detalhes(long id)
 	{
 		Transportadora transportadora = Transportadora.find.byId(id);
-		List<Categoria> categoria = Categoria.find.all();
 		
 		String mensagem = "Nova Transportadora";
 		
@@ -45,7 +42,7 @@ public class TransportadoraController extends Controller{
 		System.out.println(transportadora);
 		Form<Transportadora> formPreenchido = formTransportadora.fill(transportadora);
 
-		return ok(views.html.transportadora.transportadoraDetalhes.render(formPreenchido,transportadora.id,mensagem,categoria));
+		return ok(views.html.transportadora.transportadoraDetalhes.render(formPreenchido,transportadora.id,mensagem));
 	}
 	
 	//----------------------------------------------------------------------------------------------------------

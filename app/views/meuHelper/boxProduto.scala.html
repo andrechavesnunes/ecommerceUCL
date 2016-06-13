@@ -1,0 +1,17 @@
+@(linkImagem: String, altImagem: String, produto: String, preco: String)
+            
+<!--        DESCRIÇÃO DOS PRODUTOS NO MÁXIMO 20 CARACTERES  -->
+
+            <div class="grid_1_of_4 images_1_of_4">
+              <a href="preview.html"><img src="@routes.Assets.versioned("@linkImagem")" alt="@altImagem" /></a>
+              <h2>@produto</h2>
+              <div class="price-details">
+                <div class="price-number">
+                  <p><span class="rupees">R$ @preco</span></p>
+                </div>
+                <div class="add-cart">
+                  <h4><a href="preview.html">Adicionar</a></h4>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </div>

@@ -1,0 +1,64 @@
+@(title: String)(content: Html)
+@import meuHelper._
+
+<!--A Design by W3layouts
+Author: W3layout Modificado por Cláudio Rodrigues e André Chaves
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<head>
+<title>Planeta Geek - E-Commerce</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="@routes.Assets.versioned("Vendor/css/style.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@routes.Assets.versioned("Vendor/css/slider.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@routes.Assets.versioned("Vendor/css/global.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@routes.Assets.versioned("Vendor/css/easy-responsive-tabs.css")" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="@routes.Assets.versioned("public/Vendor/js/jquery-1.7.2.min.js")"></script>
+<script type="text/javascript" src="@routes.Assets.versioned("public/Vendor/js/move-top.js")"></script>
+<script type="text/javascript" src="@routes.Assets.versioned("public/Vendor/js/easing.js")"></script>
+<script type="text/javascript" src="@routes.Assets.versioned("public/Vendor/js/startstop-slider.js")"></script>
+</head>
+<!-- final da head -->
+<body>
+	<!-- inicio da classe wrap -->
+	<div class="wrap">
+
+		<!-- inicio da classe header -->
+		<div class="header">
+
+			@meuHelper.headerTop()
+
+		</div>
+		<!-- fim da classe header -->
+
+		<!-- inicio da classe html main -->
+		<div class="main">
+			<div class="content">
+
+				@meuHelper.cabecalhoPagina("Promoções Imperdíveis","#","Veja todos os produtos")
+
+				<!-- inicio do grupo de produtos promoções -->
+				<div class="section group">
+				
+				@content
+				
+				</div>
+			</div>
+			<!-- fim da classe main -->
+		</div>
+		<!-- fim da classe wrap -->
+
+		@meuHelper.footer()
+
+		<script type="text/javascript">
+    $(document).ready(function() {
+      $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+    </script>
+		<a href="#" id="toTop"><span id="toTopHover"> </span></a>
+</body>
+</html>

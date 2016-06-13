@@ -16,9 +16,8 @@ public class FormaPagamentoController extends Controller {
 	public Result lista()
 	{
 		List<FormaPagamento> formaPagamento = FormaPagamento.find.all();
-		List<Categoria> categoria = Categoria.find.all();
 		
-		return ok(views.html.formaPagamento.formaPagamentoLista.render("Listagem de Formas de Pagamento",categoria,formaPagamento));
+		return ok(views.html.formaPagamento.formaPagamentoLista.render("Listagem de Formas de Pagamento",formaPagamento));
 	
 	}
 	
@@ -26,16 +25,14 @@ public class FormaPagamentoController extends Controller {
 	public Result novaFormaPagamento()
 	{
 		String mensagem = "Nova Forma de Pagamento";
-		List<Categoria> categoria = Categoria.find.all();
 		
-		return ok(views.html.formaPagamento.formaPagamentoDetalhes.render(formFormaPagamento,new Long(0),mensagem,categoria));
+		return ok(views.html.formaPagamento.formaPagamentoDetalhes.render(formFormaPagamento,new Long(0),mensagem));
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
 	public Result detalhes(long id)
 	{
 		FormaPagamento formaPagamento = FormaPagamento.find.byId(id);
-		List<Categoria> categoria = Categoria.find.all();
 		
 		String mensagem = "Nova Forma de Pagamento";
 		
@@ -45,7 +42,7 @@ public class FormaPagamentoController extends Controller {
 		System.out.println(formaPagamento);
 		Form<FormaPagamento> formPreenchido = formFormaPagamento.fill(formaPagamento);
 
-		return ok(views.html.formaPagamento.formaPagamentoDetalhes.render(formPreenchido,formaPagamento.id,mensagem,categoria));
+		return ok(views.html.formaPagamento.formaPagamentoDetalhes.render(formPreenchido,formaPagamento.id,mensagem));
 	}
 	
 	//----------------------------------------------------------------------------------------------------------

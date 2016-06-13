@@ -1,6 +1,6 @@
-@(formTransportadora: Form[Transportadora], id: Long, mensagem: String, categoria: List[Categoria])
+@(formTransportadora: Form[Transportadora], id: Long, mensagem: String)
 @import meuHelper._
-@main(mensagem,categoria) {
+@mainAdm(mensagem) {
 <div>
 	<h1>@mensagem</h1>
 	@meuHelper.meuFormPure("transportadora", routes.TransportadoraController.salvar(id), "post"){

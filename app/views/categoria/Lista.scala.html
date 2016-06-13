@@ -1,5 +1,5 @@
-@(message: String,categorias: List[Categoria])
-@main(message,categorias) {
+@(message: String, categoria: List[Categoria])
+@mainAdm(message) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link href="@routes.Assets.versioned("Custom/css/tables.css")" rel="stylesheet" type="text/css" media="all"/>
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
@@ -13,7 +13,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			@for(categoria <- categorias) {
+			@for(categoria <- categoria) {
 				<tr>
 					<td><a href="@routes.CategoriaController.detalhes(categoria.id)">@categoria.id</a></td>
 					<td><a href="@routes.CategoriaController.detalhes(categoria.id)">@categoria.nome</a></td>

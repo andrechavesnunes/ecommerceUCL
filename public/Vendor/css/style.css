@@ -10,9 +10,7 @@ article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, s
 ol,ul{list-style:none;margin:0;padding:0;}
 blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
-
 table{border-collapse:collapse;border-spacing:0;}
-
 /* start editing from here */
 a{text-decoration:none;}
 .txt-rt{text-align:right;}/* text align right */
@@ -90,8 +88,6 @@ body {
 }
 .logo {
 	float: left;
-	height:60px;
-	width:200px;
 }
 
 /**** Cart ****/

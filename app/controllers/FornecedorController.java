@@ -14,18 +14,19 @@ public class FornecedorController extends Controller{
 	public Result lista()
 	{
 		List<Fornecedor> fornecedor = Fornecedor.find.all();
-		List<Categoria> categoria = Categoria.find.all();
 		
-		return ok(views.html.fornecedor.Lista.render("Listagem de fornecedor",categoria,fornecedor));
-	
+		return ok(views.html.fornecedor.Lista.render("Listagem de fornecedor",fornecedor));	
 	}
+	
+	//----------------------------------------------------------------------------------------------------------
 	public Result Novo()
 	{
 		String mensagem = "Novo Fornecedor";
-		List<Categoria> categoria = Categoria.find.all();
 		
-		return ok(views.html.fornecedor.Detalhe.render(formfornecedor,categoria,new Long(0)));
+		return ok(views.html.fornecedor.Detalhe.render(formfornecedor,new Long(0)));
 	}
+	
+	//----------------------------------------------------------------------------------------------------------
 	public Result salvar(Long id){
 
 		Form<Fornecedor> formEnviado = formfornecedor.bindFromRequest();
@@ -42,10 +43,10 @@ public class FornecedorController extends Controller{
 		return redirect(routes.FornecedorController.lista());
 	}
 	
+	//----------------------------------------------------------------------------------------------------------
 	public Result detalhes(long id)
 	{
 		Fornecedor fornecedor = Fornecedor.find.byId(id);
-		List<Categoria> categoria = Categoria.find.all();
 		
 		if (fornecedor == null) {
 		 return notFound(String.format("Fornecedor %s não existe.", id));
@@ -53,8 +54,10 @@ public class FornecedorController extends Controller{
 		
 		Form<Fornecedor> formPreenchido = formfornecedor.fill(fornecedor);
 
-		return ok(views.html.fornecedor.Detalhe.render(formPreenchido,categoria,fornecedor.id));
+		return ok(views.html.fornecedor.Detalhe.render(formPreenchido,fornecedor.id));
 	}
+	
+	//----------------------------------------------------------------------------------------------------------
 	public Result delete(long id){
 		
 		Fornecedor fornecedor = new Fornecedor();

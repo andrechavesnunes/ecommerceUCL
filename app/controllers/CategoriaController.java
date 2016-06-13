@@ -28,17 +28,16 @@ public class CategoriaController extends Controller{
 	}
 	public Result Novo(){
 		List<Categoria> categorias = Categoria.find.all();
-		return ok(views.html.categoria.Detalhe.render(formCategoria,categorias,new Long(0)));
+		return ok(views.html.categoria.Detalhe.render(formCategoria,new Long(0)));
 	}
 	public Result detalhes(Long id){
 		Categoria categoria = Categoria.find.byId(id);
-		List<Categoria> categorias = Categoria.find.all();
 		if (categoria == null) {
 			return notFound(String.format("Categoria não existe.", id));
 		}
 		
 		Form<Categoria> formPreenchido = formCategoria.fill(categoria);
-		return ok(views.html.categoria.Detalhe.render(formPreenchido,categorias,categoria.id));
+		return ok(views.html.categoria.Detalhe.render(formPreenchido,categoria.id));
 	}
 	public Result salvar(Long id)
 	{

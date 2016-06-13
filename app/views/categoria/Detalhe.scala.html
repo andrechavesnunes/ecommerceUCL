@@ -1,6 +1,6 @@
-@(formCategoria: Form[Categoria],categorias: List[Categoria],id:Long)
-@import helper._
-@main("Formulário de Categoria",categorias) {
+@(formCategoria: Form[Categoria],id:Long)
+@import meuHelper._
+@mainAdm("Formulário de Categoria") {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<h1>Formulário de Categoria</h1>
 	@meuHelper.meuFormPure("Categoria",routes.CategoriaController.salvar(id),"post") {

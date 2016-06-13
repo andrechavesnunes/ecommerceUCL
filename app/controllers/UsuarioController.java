@@ -16,9 +16,8 @@ public class UsuarioController extends Controller {
 	public Result lista()
 	{
 		List<Usuario> usuario = Usuario.find.all();
-		List<Categoria> categoria = Categoria.find.all();
 		
-		return ok(views.html.usuario.usuarioLista.render("Listagem de Usuários",categoria,usuario));
+		return ok(views.html.usuario.usuarioLista.render("Listagem de Usuários",usuario));
 	
 	}
 	
@@ -26,16 +25,14 @@ public class UsuarioController extends Controller {
 	public Result novoUsuario()
 	{
 		String mensagem = "Novo Usuário";
-		List<Categoria> categoria = Categoria.find.all();
 		
-		return ok(views.html.usuario.usuarioDetalhes.render(formUsuario,new Long(0),mensagem,categoria));
+		return ok(views.html.usuario.usuarioDetalhes.render(formUsuario,new Long(0),mensagem));
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
 	public Result detalhes(long id)
 	{
 		Usuario usuario = Usuario.find.byId(id);
-		List<Categoria> categoria = Categoria.find.all();
 		
 		String mensagem = "Novo Usuário";
 		
@@ -45,7 +42,7 @@ public class UsuarioController extends Controller {
 		System.out.println(usuario);
 		Form<Usuario> formPreenchido = formUsuario.fill(usuario);
 
-		return ok(views.html.usuario.usuarioDetalhes.render(formPreenchido,usuario.id,mensagem,categoria));
+		return ok(views.html.usuario.usuarioDetalhes.render(formPreenchido,usuario.id,mensagem));
 	}
 	
 	//----------------------------------------------------------------------------------------------------------

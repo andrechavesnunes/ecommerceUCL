@@ -1,6 +1,6 @@
-@(formFormaPagamento: Form[FormaPagamento], id: Long, mensagem: String, categoria: List[Categoria])
+@(formFormaPagamento: Form[FormaPagamento], id: Long, mensagem: String)
 @import meuHelper._
-@main(mensagem,categoria) {
+@mainAdm(mensagem) {
 <div>
 	<h1>@mensagem</h1>
 	@meuHelper.meuFormPure("formaPagamento", routes.FormaPagamentoController.salvar(id), "post"){
