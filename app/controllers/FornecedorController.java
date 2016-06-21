@@ -15,15 +15,15 @@ public class FornecedorController extends Controller{
 	{
 		List<Fornecedor> fornecedor = Fornecedor.find.all();
 		
-		return ok(views.html.fornecedor.Lista.render("Listagem de fornecedor",fornecedor));	
+		return ok(views.html.fornecedor.Lista.render("Fornecedor",fornecedor));	
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
 	public Result Novo()
 	{
-		String mensagem = "Novo Fornecedor";
+		String mensagem = "Fornecedor";
 		
-		return ok(views.html.fornecedor.Detalhe.render(formfornecedor,new Long(0)));
+		return ok(views.html.fornecedor.Detalhe.render(formfornecedor,new Long(0),"Fornecedor"));
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ public class FornecedorController extends Controller{
 		
 		Form<Fornecedor> formPreenchido = formfornecedor.fill(fornecedor);
 
-		return ok(views.html.fornecedor.Detalhe.render(formPreenchido,fornecedor.id));
+		return ok(views.html.fornecedor.Detalhe.render(formPreenchido,fornecedor.id,"Fornecedor"));
 	}
 	
 	//----------------------------------------------------------------------------------------------------------

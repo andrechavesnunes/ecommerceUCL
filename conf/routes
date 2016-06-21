@@ -58,8 +58,9 @@ GET     /Fornecedor/delete/:id	   controllers.FornecedorController.delete(id: Lo
 #----------------------------------------------------------------------------------------------------
 
 #Produto
-GET     /Produto                controllers.ProdutoController.lista()
-GET     /Produto/Novo           controllers.ProdutoController.Novo()
-POST    /Produto                controllers.ProdutoController.salvar(id: Long)
-GET     /Produto/Detalhe/:id	controllers.ProdutoController.detalhes(id: Long)	
-GET     /Produto/delete/:id	  	controllers.ProdutoController.delete(id: Long)
+GET     /produto                	controllers.ProdutoController.lista()
+GET     /produto/novo           	controllers.ProdutoController.Novo()
+POST    /produto                	controllers.ProdutoController.salvar(id: Long)
+GET     /produto/detalhe/:id		controllers.ProdutoController.detalhes(id: Long)	
+GET     /produto/delete/:id	  		controllers.ProdutoController.delete(id: Long)
+GET		/produto/visualizar/:id		controllers.ProdutoController.visualizar(id: Long)

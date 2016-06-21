@@ -17,14 +17,14 @@ public class UsuarioController extends Controller {
 	{
 		List<Usuario> usuario = Usuario.find.all();
 		
-		return ok(views.html.usuario.usuarioLista.render("Listagem de Usuários",usuario));
+		return ok(views.html.usuario.usuarioLista.render("Usuários",usuario));
 	
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
 	public Result novoUsuario()
 	{
-		String mensagem = "Novo Usuário";
+		String mensagem = "Usuário";
 		
 		return ok(views.html.usuario.usuarioDetalhes.render(formUsuario,new Long(0),mensagem));
 	}
@@ -34,7 +34,7 @@ public class UsuarioController extends Controller {
 	{
 		Usuario usuario = Usuario.find.byId(id);
 		
-		String mensagem = "Novo Usuário";
+		String mensagem = "Usuário";
 		
 		if (usuario == null) {
 		 return notFound(String.format("Usuário %s não existe.", id));

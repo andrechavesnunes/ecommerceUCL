@@ -1,21 +1,20 @@
 @(mensagem: String, produto: List[Produto])
 
-@mainAdm(mensagem){
-
+@main(mensagem){
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<h1>@mensagem</h1>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	@meuHelper.cabecalhoPagina(mensagem,"#","")
 <div>
-	<table class="">
+	<table class="pure-table">
 		<thead>
 			<tr>
 				<th>ID</th>
 				<th>DESCRICAO</th>
 				<th>PRECO</th>
-				<th>SOBRE</th>
-				<th>IMAGEM</th>
 				<th>CATEGORIA</th>
 				<th>FORNECEDOR</th>
 				<th>ESTOQUE</th>
+				<th></th>
 				<th></th>
 			</tr>
 		</thead>
@@ -24,14 +23,8 @@
 			<tr>
 				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.id</a></td>	
 				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.descricao</a></td>
-				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.preco</a></td>
-				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.sobre</a></td>
-				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.imagem</a></td>
-				
-				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.categoria</a></td>
-				
-		    
-				
+				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.preco</a></td>				
+				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.categoria.nome</a></td>			
 				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.fornecedor</a></td>
 				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.estoque</a></td>
 				<td><a href="@routes.ProdutoController.delete(produto.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>

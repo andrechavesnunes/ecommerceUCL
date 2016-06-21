@@ -2,7 +2,9 @@
 @import meuHelper._
 @mainAdm(mensagem) {
 <div>
-	<h1>@mensagem</h1>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	@meuHelper.cabecalhoPagina(mensagem,"#","")
 	@meuHelper.meuFormPure("formaPagamento", routes.FormaPagamentoController.salvar(id), "post"){
 		<fieldset>
 		

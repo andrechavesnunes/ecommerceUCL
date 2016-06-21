@@ -29,21 +29,76 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- inicio da classe header -->
 		<div class="header">
 
-			@meuHelper.headerTop()
 
+			<!-- inicio da header top desc -->
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<div class="headertop_desc">
+				<div class="call">
+					<p>
+						<span>Precisa de ajuda?</span> Ligue <span class="number">(27)3033-8800</span></span>
+					</p>
+				</div>
+				<div class="account_desc">
+					<ul>
+						<li><a href="#">Cadastre-se</a></li>
+						<li><a href="#">Entre</a></li>
+						<li><a href="#">Meu Carrinho</a></li>
+						<li><a href="#">Minha Conta</a></li>
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!-- fim da header top desc -->
+
+			<!-- inicio da header top -->
+			<div class="header_top">
+				<div class="logo">
+					<a href="@routes.Assets.versioned("Custom/img/logo.jpg")" alt="Logo" /></a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!-- fim da header top -->
+
+			<!-- NAVBAR - início da header bottom -->
+			<div class="header_bottom">
+				<div class="menu">
+					<ul>
+						<li class="active"><a href="index.html">Início</a></li>
+						<li><a href="about.html">Sobre</a></li>
+						<li><a href="news.html">Novidades</a></li>
+						<li><a href="contact.html">Contato</a></li>
+						<div class="clear"></div>
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!-- fim da NAVBAR - header bottom -->
+			
+		<div class="header_slide">
+			<div class="header_bottom_left">
+				<div class="categories">
+					<ul><h3>Administrativo</h3>						
+						<li><a href="@routes.UsuarioController.lista()">Usuário</a></li>
+						<li><a href="@routes.ProdutoController.lista()">Produto</a></li>
+						<li><a href="@routes.CategoriaController.lista()">Categoria</a></li>
+						<li><a href="@routes.FornecedorController.lista()">Fornecedor</a></li>
+						<li><a href="@routes.TransportadoraController.lista()">Transportadora</a></li>
+						<li><a href="@routes.FormaPagamentoController.lista()">Forma de Pagamento</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="header_bottom_right">
+				@content
+			</div>
+		</div>			
 		</div>
 		<!-- fim da classe header -->
-
+		
 		<!-- inicio da classe html main -->
 		<div class="main">
 			<div class="content">
-
-				@meuHelper.cabecalhoPagina("Promoções Imperdíveis","#","Veja todos os produtos")
-
 				<!-- inicio do grupo de produtos promoções -->
-				<div class="section group">
-				
-				@content
+				<div class="section group">	
 				
 				</div>
 			</div>

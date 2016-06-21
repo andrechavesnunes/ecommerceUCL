@@ -1,8 +1,9 @@
-@(formCategoria: Form[Categoria],id:Long)
+@(formCategoria: Form[Categoria],id:Long,mensagem:String)
 @import meuHelper._
-@mainAdm("Formulário de Categoria") {
+@mainAdm(mensagem) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<h1>Formulário de Categoria</h1>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	@meuHelper.cabecalhoPagina(mensagem,"#","")
 	@meuHelper.meuFormPure("Categoria",routes.CategoriaController.salvar(id),"post") {
 		<fieldset>
 		<legend>Categoria (@formCategoria("Id").valueOr("Novo"))</legend>

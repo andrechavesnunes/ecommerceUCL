@@ -17,14 +17,14 @@ public class FormaPagamentoController extends Controller {
 	{
 		List<FormaPagamento> formaPagamento = FormaPagamento.find.all();
 		
-		return ok(views.html.formaPagamento.formaPagamentoLista.render("Listagem de Formas de Pagamento",formaPagamento));
+		return ok(views.html.formaPagamento.formaPagamentoLista.render("Formas de Pagamento",formaPagamento));
 	
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
 	public Result novaFormaPagamento()
 	{
-		String mensagem = "Nova Forma de Pagamento";
+		String mensagem = "Forma de Pagamento";
 		
 		return ok(views.html.formaPagamento.formaPagamentoDetalhes.render(formFormaPagamento,new Long(0),mensagem));
 	}
@@ -34,7 +34,7 @@ public class FormaPagamentoController extends Controller {
 	{
 		FormaPagamento formaPagamento = FormaPagamento.find.byId(id);
 		
-		String mensagem = "Nova Forma de Pagamento";
+		String mensagem = "Forma de Pagamento";
 		
 		if (formaPagamento == null) {
 		 return notFound(String.format("Forma de Pagamento %s não existe.", id));

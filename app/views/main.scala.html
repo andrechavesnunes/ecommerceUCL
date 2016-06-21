@@ -1,275 +1,156 @@
-@(title: String)(content: Html)
-@import meuHelper._
+@(title: String)(content: Html) @import meuHelper._
 
-<!--A Design by W3layouts
-Author: W3layout Modificado por Cláudio Rodrigues e André Chaves
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE HTML>
+<html>
 <head>
-<title>Planeta Geek - E-Commerce</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="@routes.Assets.versioned("Vendor/css/style.css")" rel="stylesheet" type="text/css" media="all" />
-<link href="@routes.Assets.versioned("Vendor/css/slider.css")" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="@routes.Assets.versioned("Vendor/js/jquery-1.7.2.min.js")"></script>
-<script type="text/javascript" src="@routes.Assets.versioned("Vendor/js/move-top.js")"></script>
-<script type="text/javascript" src="@routes.Assets.versioned("Vendor/js/easing.js")"></script>
-<script type="text/javascript" src="@routes.Assets.versioned("Vendor/js/startstop-slider.js")"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript"
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript"
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+	rel="stylesheet" type="text/css">
 </head>
-<!-- final da head -->
-
 <body>
-	<!-- inicio da classe wrap -->
-	<div class="wrap">
 
-		<!-- inicio da classe header -->
-		<div class="header">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Brand</a>
+			</div>
 
-			@meuHelper.headerTop()
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+					<li><a href="#">Link</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">One more separated link</a></li>
+						</ul></li>
+				</ul>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Link</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
 
-			<div class="header_slide">
 
-				<!-- inicio de categorias - header left-->
-				<div class="header_bottom_left">
-				
-					@meuHelper.divCategorias()
-					
-				</div>
-				<!-- fim de categorias - header left-->
 
-<!-- 				inicio do slide -->
-				<div class="header_bottom_right">
-					<div class="slider">
-		              <div id="slider">
-		                <div id="mover">
-				
-							@meuHelper.slide("images/slide-1-image.png","learn more","Clearance","SALE","UPTo 20% OFF","Get to Know More About Our Memorable Services Lorem Ipsum is simply dummy text")
-							@meuHelper.slide("images/slide-1-image.png","learn more","Clearance","SALE","UPTo 20% OFF","Get to Know More About Our Memorable Services Lorem Ipsum is simply dummy text")
-							@meuHelper.slide("images/slide-1-image.png","learn more","Clearance","SALE","UPTo 20% OFF","Get to Know More About Our Memorable Services Lorem Ipsum is simply dummy text")
-						
-		                </div>
-		              </div>
-		              <div class="clear"></div>
-		            </div>					
-										
-				</div>
-				<div class="clear"></div>
-<!-- 				fim do slide -->
-
+	<div class="hidden-xs section section-primary">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12"></div>
 			</div>
 
 		</div>
-		<!-- fim da classe header -->
-
-		<!-- inicio da classe html main -->
-		<div class="main">
-			<div class="content">
-			
-		<!-- conteudo do site -->
-				@content
-
-				<!-- =========================================================== -->
-				<!-- inicio do cabeçalho de promoções -->
-				<!--           <div class="content_top"> -->
-				<!--             <div class="heading"> -->
-				<!--               <h3>PROMOÇÕES IMPERDÍVEIS</h3> -->
-				<!--             </div> -->
-				<!--             <div class="see"> -->
-				<!--               <p><a href="#">Veja todos os produtos</a></p> -->
-				<!--             </div> -->
-				<!--             <div class="clear"></div> -->
-				<!--           </div> -->
-				<!-- fim do cabeçalho promoções -->
-
-				@meuHelper.cabecalhoPagina("Promoções Imperdíveis","#","Veja todos os produtos")
-
-				<!-- =========================================================== -->
-				<!-- inicio do grupo de produtos promoções -->
-				<div class="section group">
-					<!-- =========================================================== -->
-					            <div class="grid_1_of_4 images_1_of_4">
-					              <a href="preview.html"><img src="images/feature-pic1.jpg" alt="" /></a>
-					              <h2>Lorem Ipsum is simply </h2>
-					              <div class="price-details">
-					                <div class="price-number">
-					                  <p><span class="rupees">R$ 620.87</span></p>
-					                </div>
-					                <div class="add-cart">
-					                  <h4><a href="preview.html">Adicionar</a></h4>
-					                </div>
-					                <div class="clear"></div>
-					              </div>
-					            </div>
-
-					@meuHelper.boxProduto("images/feature-pic1.jpg","", "Lorem Ipsum is simply", "620,87")
-
-					<!-- =========================================================== -->
-					<!--             <div class="grid_1_of_4 images_1_of_4"> -->
-					<!--               <a href="preview.html"><img src="images/feature-pic2.jpg" alt="" /></a> -->
-					<!--               <h2>Lorem Ipsum is simply </h2> -->
-					<!--               <div class="price-details"> -->
-					<!--                 <div class="price-number"> -->
-					<!--                   <p><span class="rupees">R$ 899.75</span></p> -->
-					<!--                 </div> -->
-					<!--                 <div class="add-cart"> -->
-					<!--                   <h4><a href="preview.html">Adicionar</a></h4> -->
-					<!--                 </div> -->
-					<!--                 <div class="clear"></div> -->
-					<!--               </div> -->
-					<!--             </div> -->
-
-					@meuHelper.boxProduto("images/feature-pic2.jpg","", "Lorem Ipsum is simply", "899,75")
-
-					<!-- =========================================================== -->
-					<!--             <div class="grid_1_of_4 images_1_of_4"> -->
-					<!--               <a href="preview.html"><img src="images/feature-pic3.jpg" alt="" /></a> -->
-					<!--               <h2>Lorem Ipsum is simply </h2> -->
-					<!--               <div class="price-details"> -->
-					<!--                 <div class="price-number"> -->
-					<!--                   <p><span class="rupees">R$ 599.00</span></p> -->
-					<!--                 </div> -->
-					<!--                 <div class="add-cart"> -->
-					<!--                   <h4><a href="preview.html">Adicionar</a></h4> -->
-					<!--                 </div> -->
-					<!--                 <div class="clear"></div> -->
-					<!--               </div> -->
-					<!--             </div> -->
-
-					@meuHelper.boxProduto("images/feature-pic3.jpg","", "Lorem Ipsum is simply", "599,00")
-
-					<!-- =========================================================== -->
-					<!--             <div class="grid_1_of_4 images_1_of_4"> -->
-					<!--               <a href="preview.html"><img src="images/feature-pic4.jpg" alt="" /></a> -->
-					<!--               <h2>Lorem Ipsum is simply </h2> -->
-					<!--               <div class="price-details"> -->
-					<!--                 <div class="price-number"> -->
-					<!--                   <p><span class="rupees">R$ 679.87</span></p> -->
-					<!--                 </div> -->
-					<!--                 <div class="add-cart"> -->
-					<!--                   <h4><a href="preview.html">Adicionar</a></h4> -->
-					<!--                 </div> -->
-					<!--                 <div class="clear"></div> -->
-					<!--               </div> -->
-					<!--             </div> -->
-
-					@meuHelper.boxProduto("images/feature-pic4.jpg","", "Lorem Ipsum is	simply", "679,87")
-
-				</div>
-				<!-- fim do grupo de produtos de promoção -->
-
-				<!-- =========================================================== -->
-				<!-- início cabeçalho de lançamentos -->
-				<!--           <div class="content_bottom"> -->
-				<!--             <div class="heading"> -->
-				<!--               <h3>LANÇAMENTOS</h3> -->
-				<!--             </div> -->
-				<!--             <div class="see"> -->
-				<!--               <p><a href="#">Veja todos os produtos</a></p> -->
-				<!--             </div> -->
-				<!--             <div class="clear"></div> -->
-				<!--           </div> -->
-				<!-- fim cabeçalho de lançamentos -->
-
-				@meuHelper.cabecalhoPagina("Lançamentos","#","Veja todos os produtos")
-
-				<!-- inicio do grupo de produtos lançamentos  -->
-				<div class="section group">
-					<!-- =========================================================== -->
-<!-- 					<div class="grid_1_of_4 images_1_of_4"> -->
-<!-- 						<a href="preview.html"><img src="images/new-pic1.jpg" alt="" /></a> -->
-<!-- 						<h2>Lorem Ipsum is simply</h2> -->
-<!-- 						<div class="price-details"> -->
-<!-- 							<div class="price-number"> -->
-<!-- 								<p> -->
-<!-- 									<span class="rupees">R$ 849.99</span> -->
-<!-- 								</p> -->
-<!-- 							</div> -->
-<!-- 							<div class="add-cart"> -->
-<!-- 								<h4> -->
-<!-- 									<a href="preview.html">Adicionar</a> -->
-<!-- 								</h4> -->
-<!-- 							</div> -->
-<!-- 							<div class="clear"></div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-					@meuHelper.boxProduto("images/feature-pic4.jpg","", "Lorem Ipsum is	simply", "679,87")
-					<!-- =========================================================== -->
-<!-- 					<div class="grid_1_of_4 images_1_of_4"> -->
-<!-- 						<a href="preview.html"><img src="images/new-pic2.jpg" alt="" /></a> -->
-<!-- 						<h2>Lorem Ipsum is simply</h2> -->
-<!-- 						<div class="price-details"> -->
-<!-- 							<div class="price-number"> -->
-<!-- 								<p> -->
-<!-- 									<span class="rupees">R$ 599.99</span> -->
-<!-- 								</p> -->
-<!-- 							</div> -->
-<!-- 							<div class="add-cart"> -->
-<!-- 								<h4> -->
-<!-- 									<a href="preview.html">Adicionar</a> -->
-<!-- 								</h4> -->
-<!-- 							</div> -->
-<!-- 							<div class="clear"></div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-					@meuHelper.boxProduto("images/feature-pic4.jpg","", "Lorem Ipsum is	simply", "679,87")
-					<!-- =========================================================== -->
-<!-- 					<div class="grid_1_of_4 images_1_of_4"> -->
-<!-- 						<a href="preview.html"><img src="images/new-pic4.jpg" alt="" /></a> -->
-<!-- 						<h2>Lorem Ipsum is simply</h2> -->
-<!-- 						<div class="price-details"> -->
-<!-- 							<div class="price-number"> -->
-<!-- 								<p> -->
-<!-- 									<span class="rupees">R$ 799.99</span> -->
-<!-- 								</p> -->
-<!-- 							</div> -->
-<!-- 							<div class="add-cart"> -->
-<!-- 								<h4> -->
-<!-- 									<a href="preview.html">Adicionar</a> -->
-<!-- 								</h4> -->
-<!-- 							</div> -->
-<!-- 							<div class="clear"></div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-					@meuHelper.boxProduto("images/feature-pic4.jpg","", "Lorem Ipsum is	simply", "679,87")
-					<!-- =========================================================== -->
-<!-- 					<div class="grid_1_of_4 images_1_of_4"> -->
-<!-- 						<a href="preview.html"><img src="images/new-pic3.jpg" alt="" /></a> -->
-<!-- 						<h2>Lorem Ipsum is simply</h2> -->
-<!-- 						<div class="price-details"> -->
-<!-- 							<div class="price-number"> -->
-<!-- 								<p> -->
-<!-- 									<span class="rupees">R$ 899.99</span> -->
-<!-- 								</p> -->
-<!-- 							</div> -->
-<!-- 							<div class="add-cart"> -->
-<!-- 								<h4> -->
-<!-- 									<a href="preview.html">Adicionar</a> -->
-<!-- 								</h4> -->
-<!-- 							</div> -->
-<!-- 							<div class="clear"></div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-					@meuHelper.boxProduto("images/feature-pic4.jpg","", "Lorem Ipsum is	simply", "679,87")
-					<!-- =========================================================== -->
-				</div>
-				<!-- fim do grupo de produtos de lançamento -->
-			</div>
-		</div>
-		<!-- fim da classe main -->
 	</div>
-	<!-- fim da classe wrap -->
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+				
+				@content
+				
+				</div>
+			</div>
+		</div>
+	</div>
 
-	@meuHelper.footer()
 
-	<script type="text/javascript">
-    $(document).ready(function() {
-      $().UItoTop({ easingType: 'easeOutQuart' });
 
-    });
-    </script>
-	<a href="#" id="toTop"><span id="toTopHover"> </span></a>
+
+
+
+	<div class="section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-xs-3 text-center">
+					<a><i class="fa fa-5x fa-fw fa-instagram"></i></a>
+				</div>
+				<div class="col-xs-3">
+					<a><i class="fa fa-5x fa-fw fa-twitter"></i></a>
+				</div>
+				<div class="col-xs-3">
+					<a><i class="fa fa-5x fa-fw fa-facebook"></i></a>
+				</div>
+				<div class="col-xs-3 text-center">
+					<a><i class="fa fa-5x fa-fw hub fa-delicious"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="section section-primary">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<h1>Footer header</h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisici elit, <br>sed
+						eiusmod tempor incidunt ut labore et dolore magna aliqua. <br>Ut
+						enim ad minim veniam, quis nostrud
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<h1>Footer header</h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisici elit, <br>sed
+						eiusmod tempor incidunt ut labore et dolore magna aliqua. <br>Ut
+						enim ad minim veniam, quis nostrud
+					</p>
+				</div>
+				<div class="col-sm-4">
+					<h1>Footer header</h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisici elit, <br>sed
+						eiusmod tempor incidunt ut labore et dolore magna aliqua. <br>Ut
+						enim ad minim veniam, quis nostrud
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
 </body>
 </html>

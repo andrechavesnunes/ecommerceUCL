@@ -18,7 +18,7 @@ public class ProdutoController extends Controller{
 	{
 		List<Produto> produto = Produto.find.all();
 		
-		return ok(views.html.produto.produtoLista.render("Listagem de Produto",produto));	
+		return ok(views.html.produto.produtoLista.render("Produto",produto));	
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ public class ProdutoController extends Controller{
 		List<Categoria> categoria = Categoria.find.all();
 		List<Fornecedor> fornecedor = Fornecedor.find.all();
 		
-		return ok(views.html.produto.produtoDetalhes.render(formProduto,new Long(0),"Cadastro de Produtos",categoria,fornecedor));
+		return ok(views.html.produto.produtoDetalhes.render(formProduto,new Long(0),"Produtos",categoria,fornecedor));
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
@@ -61,7 +61,21 @@ public class ProdutoController extends Controller{
 		List<Categoria> categoria = Categoria.find.all();
 		List<Fornecedor> fornecedor = Fornecedor.find.all();
 
-		return ok(views.html.produto.produtoDetalhes.render(formPreenchido,produto.id,"Cadastro de Produto",categoria,fornecedor));
+		return ok(views.html.produto.produtoDetalhes.render(formPreenchido,produto.id,"Produto",categoria,fornecedor));
+	}
+	
+	//----------------------------------------------------------------------------------------------------------
+	public Result visualizar(long id)
+	{
+		Produto produto = Produto.find.byId(id);
+		
+		if (produto == null) {
+			 return notFound(String.format("Produto %s não existe.", id));
+		}
+		Form<Produto> formPreenchido = formProduto.fill(produto);
+		List<Categoria> categoria = Categoria.find.all();
+		
+		return ok(views.html.produto.produtoPreview.render(formPreenchido,produto.id,"Produto",categoria));
 	}
 	
 	//----------------------------------------------------------------------------------------------------------

@@ -17,14 +17,14 @@ public class TransportadoraController extends Controller{
 	{
 		List<Transportadora> transportadora = Transportadora.find.all();
 		
-		return ok(views.html.transportadora.transportadoraLista.render("Listagem de Transportadora",transportadora));
+		return ok(views.html.transportadora.transportadoraLista.render("Transportadora",transportadora));
 	
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
 	public Result novaTransportadora()
 	{
-		String mensagem = "Nova Transportadora";
+		String mensagem = "Transportadora";
 		
 		return ok(views.html.transportadora.transportadoraDetalhes.render(formTransportadora,new Long(0),mensagem));
 	}
@@ -34,7 +34,7 @@ public class TransportadoraController extends Controller{
 	{
 		Transportadora transportadora = Transportadora.find.byId(id);
 		
-		String mensagem = "Nova Transportadora";
+		String mensagem = "Transportadora";
 		
 		if (transportadora == null) {
 		 return notFound(String.format("Transportadora %s não existe.", id));
