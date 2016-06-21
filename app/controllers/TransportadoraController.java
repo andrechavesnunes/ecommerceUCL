@@ -16,8 +16,9 @@ public class TransportadoraController extends Controller{
 	public Result lista()
 	{
 		List<Transportadora> transportadora = Transportadora.find.all();
+		List<Categoria> categorias = Categoria.find.all();
 		
-		return ok(views.html.transportadora.transportadoraLista.render("Transportadora",transportadora));
+		return ok(views.html.transportadora.transportadoraLista.render("Transportadora",transportadora,categorias));
 	
 	}
 	

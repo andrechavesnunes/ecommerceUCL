@@ -16,8 +16,9 @@ public class UsuarioController extends Controller {
 	public Result lista()
 	{
 		List<Usuario> usuario = Usuario.find.all();
+		List<Categoria> categorias = Categoria.find.all();
 		
-		return ok(views.html.usuario.usuarioLista.render("Usuários",usuario));
+		return ok(views.html.usuario.usuarioLista.render("Usuários",usuario,categorias));
 	
 	}
 	

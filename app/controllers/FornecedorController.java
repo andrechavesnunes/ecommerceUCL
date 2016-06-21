@@ -14,8 +14,9 @@ public class FornecedorController extends Controller{
 	public Result lista()
 	{
 		List<Fornecedor> fornecedor = Fornecedor.find.all();
+		List<Categoria> categorias = Categoria.find.all();
 		
-		return ok(views.html.fornecedor.Lista.render("Fornecedor",fornecedor));	
+		return ok(views.html.fornecedor.Lista.render("Fornecedor",fornecedor,categorias));	
 	}
 	
 	//----------------------------------------------------------------------------------------------------------

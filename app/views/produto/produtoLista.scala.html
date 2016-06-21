@@ -1,38 +1,60 @@
-@(mensagem: String, produto: List[Produto])
-
-@main(mensagem){
+@(mensagem: String, produto: List[Produto],categoria:List[Categoria]) 
+@main(mensagem,categoria){
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-	@meuHelper.cabecalhoPagina(mensagem,"#","")
-<div>
-	<table class="pure-table">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>DESCRICAO</th>
-				<th>PRECO</th>
-				<th>CATEGORIA</th>
-				<th>FORNECEDOR</th>
-				<th>ESTOQUE</th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-		@for(produto <- produto) {
-			<tr>
-				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.id</a></td>	
-				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.descricao</a></td>
-				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.preco</a></td>				
-				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.categoria.nome</a></td>			
-				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.fornecedor</a></td>
-				<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.estoque</a></td>
-				<td><a href="@routes.ProdutoController.delete(produto.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
-			</tr>			
-		}
-		</tbody>
-	</table>
-	<a href="/produto/novo" class="button">Novo</a>
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>@mensagem</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered table-hover table-striped">
+					<thead>
+						<tr>
+							<th class="info">ID</th>
+							<th class="info">DESCRICAO</th>
+							<th class="info">PRECO</th>
+							<th class="info">CATEGORIA</th>
+							<th class="info">FORNECEDOR</th>
+							<th class="info">ESTOQUE</th>
+							<th class="info"></th>
+						</tr>
+					</thead>
+
+					<tbody>
+						@for(produto <- produto) {
+						<tr>
+							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.id</a></td>
+							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.descricao</a></td>
+							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.preco</a></td>
+							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.categoria.nome</a></td>
+							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.fornecedor.nome</a></td>
+							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.estoque</a></td>
+							<td><a href="@routes.ProdutoController.delete(produto.id)"><input
+									type="submit" class="btn btn-primary" value="Remover"></a></td>
+						</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<a class="btn btn-lg btn-primary" href="/produto/novo">Novo</a>
+			</div>
+		</div>
+	</div>
 </div>
 
 }

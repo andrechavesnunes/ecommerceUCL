@@ -10,15 +10,15 @@ import models.Produto;
 
 public class ProdutoController extends Controller{
 	private final Form<Produto> formProduto = Form.form(Produto.class);
-	List<Categoria> categoria = Categoria.find.all();
 	List<Fornecedor> fornecedor = Fornecedor.find.all();
 	
 	//----------------------------------------------------------------------------------------------------------
 	public Result lista()
 	{
 		List<Produto> produto = Produto.find.all();
+		List<Categoria> categorias = Categoria.find.all();
 		
-		return ok(views.html.produto.produtoLista.render("Produto",produto));	
+		return ok(views.html.produto.produtoLista.render("Produto",produto,categorias));	
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
@@ -62,20 +62,6 @@ public class ProdutoController extends Controller{
 		List<Fornecedor> fornecedor = Fornecedor.find.all();
 
 		return ok(views.html.produto.produtoDetalhes.render(formPreenchido,produto.id,"Produto",categoria,fornecedor));
-	}
-	
-	//----------------------------------------------------------------------------------------------------------
-	public Result visualizar(long id)
-	{
-		Produto produto = Produto.find.byId(id);
-		
-		if (produto == null) {
-			 return notFound(String.format("Produto %s não existe.", id));
-		}
-		Form<Produto> formPreenchido = formProduto.fill(produto);
-		List<Categoria> categoria = Categoria.find.all();
-		
-		return ok(views.html.produto.produtoPreview.render(formPreenchido,produto.id,"Produto",categoria));
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
