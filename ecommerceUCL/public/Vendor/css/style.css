@@ -1,0 +1,55 @@
+th{
+	text-align: center;
+}
+
+.td_center {
+	text-align: center;
+}
+
+.td_right {
+	text-align: right;
+}
+
+.btn {
+	margin-left : 15px;
+}
+.item {
+    height: 300px;
+    width:100%;
+}
+#Vitrine{
+	 height: 250px;
+	 width: 100%;	 
+}
+@keyframes animaGrid{
+    from {
+	    opacity: 0;
+	}
+	to { 
+	    opacity: 65;
+	}
+}
+#boxvitrine{
+	margin-top:5px;
+	width :100%;
+	height : 100%;
+	-webkit-animation: animaGrid 4s ease;
+    -moz-animation: animaGrid 4s ease;
+    -ms-animation: animaGrid 4s ease;
+    -o-animation: animaGrid 4s ease;
+    animation: animaGrid s ease;
+}
+#imgCart{
+	width : 70px;
+	height: 100px;
+	float:left;
+}
+
+#descprodcart{
+	text-align: center;
+	width : 500px;
+	height: 50px;
+	font-size: 20;
+	font-weight: bold;
+	float:left;
+}

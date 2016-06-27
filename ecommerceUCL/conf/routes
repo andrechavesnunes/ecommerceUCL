@@ -1,0 +1,73 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+#----------------------------------------------------------------------------------------------------
+# Home page
+GET    /                                controllers.ProdutoController.Index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               	controllers.Assets.versioned(path="/public", file: Asset)
+
+#----------------------------------------------------------------------------------------------------
+#Transportadora
+
+GET		/transportadora					controllers.TransportadoraController.lista()
+GET		/transportadora/novo			controllers.TransportadoraController.novaTransportadora()
+GET 	/transportadora/:id				controllers.TransportadoraController.detalhes(id: Long)
+POST 	/transportadora/				controllers.TransportadoraController.salvar(id: Long)
+GET		/transportadora/remover/:id 	controllers.TransportadoraController.remover(id: Long)
+#----------------------------------------------------------------------------------------------------
+#Categoria
+GET     /carrinho						controllers.CarrinhoController.listaCarrinho()
+GET     /carrinho/add/:id				controllers.CarrinhoController.addItemAoCarrinho(id : Long)
+
+#----------------------------------------------------------------------------------------------------
+#Categoria
+
+GET     /categoria                  	controllers.CategoriaController.lista()
+GET     /categoria/novo           		controllers.CategoriaController.Novo()
+POST    /categoria                		controllers.CategoriaController.salvar(id: Long)
+GET     /categoria/detalhe/:id	  		controllers.CategoriaController.detalhes(id: Long)	
+GET     /categoria/delete/:id	  		controllers.CategoriaController.delete(id: Long)
+
+#----------------------------------------------------------------------------------------------------
+#Forma de Pagamento
+
+GET		/formapagamento					controllers.FormaPagamentoController.lista()
+GET		/formapagamento/novo			controllers.FormaPagamentoController.novaFormaPagamento
+GET		/formapagamento/:id				controllers.FormaPagamentoController.detalhes(id: Long)
+POST	/formapagamento/				controllers.FormaPagamentoController.salvar(id : Long)
+GET 	/formapagamento/remover/:id		controllers.FormaPagamentoController.remover(id: Long)
+
+#----------------------------------------------------------------------------------------------------
+#Usuário
+
+GET		/usuario     					controllers.UsuarioController.lista()
+GET 	/usuario/novo					controllers.UsuarioController.novoUsuario
+GET 	/usuario/logout  	            controllers.UsuarioController.Logout
+GET		/usuario/:id					controllers.UsuarioController.detalhes(id: Long)
+POST	/usuario                        controllers.UsuarioController.salvar(id: Long)
+POST	/usuario/login	            	controllers.UsuarioController.Autenticar()
+GET		/usuario/remover/:id			controllers.UsuarioController.remover(id : Long)
+
+#----------------------------------------------------------------------------------------------------
+
+#Fornecedor
+
+GET     /fornecedor                controllers.FornecedorController.lista()
+GET     /fornecedor/novo           controllers.FornecedorController.Novo()
+POST    /fornecedor                controllers.FornecedorController.salvar(id: Long)
+GET     /fornecedor/detalhe/:id	   controllers.FornecedorController.detalhes(id: Long)	
+GET     /fornecedor/delete/:id	   controllers.FornecedorController.delete(id: Long)
+
+#----------------------------------------------------------------------------------------------------
+
+#Produto
+GET     /produto                	controllers.ProdutoController.lista()
+GET     /produto/vitrine            controllers.ProdutoController.Vitrine(id: Long)
+POST     /produto/search            controllers.ProdutoController.VitrineStr()
+GET     /produto/novo           	controllers.ProdutoController.Novo()
+POST    /produto                	controllers.ProdutoController.salvar(id: Long)
+GET     /produto/detalhe/:id		controllers.ProdutoController.detalhes(id: Long)	
+GET     /produto/delete/:id	  		controllers.ProdutoController.delete(id: Long)

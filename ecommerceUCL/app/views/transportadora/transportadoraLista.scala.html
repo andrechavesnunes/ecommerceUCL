@@ -1,0 +1,60 @@
+@(mensagem: String, transportadora: List[Transportadora])
+
+@main(mensagem){
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>@mensagem</h1>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered table-hover table-striped">
+					<thead>
+						<tr>
+							<th class="info">ID</th>
+							<th class="info">NOME</th>
+							<th class="info">CNPJ</th>
+							<th class="info"></th>
+						</tr>
+					</thead>
+
+					<tbody>
+						@for(transportadora <- transportadora) {
+						<tr>
+							<td class="td_center"><a
+								href="@routes.TransportadoraController.detalhes(transportadora.id)">@transportadora.id</a></td>
+							<td><a
+								href="@routes.TransportadoraController.detalhes(transportadora.id)">@transportadora.nome</a></td>
+							<td class="td_center"><a
+								href="@routes.TransportadoraController.detalhes(transportadora.id)">@transportadora.cnpj</a></td>
+							<td class="td_center"><a
+								href="@routes.TransportadoraController.remover(transportadora.id)"><input
+									type="submit" class="btn btn-primary" value="Remover"></a></td>
+						</tr>
+
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<a class="btn btn-lg btn-primary" href="/transportadora/novo">Novo</a>
+		</div>
+	</div>
+</div>
+
+
+}

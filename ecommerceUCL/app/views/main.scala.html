@@ -1,0 +1,72 @@
+@(title: String)(content: Html) 
+@import meuHelper._
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>E-commerce</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link href="@routes.Assets.versioned("Vendor/css/bootstrap.css")" rel="stylesheet" type="text/css">
+		<link href="@routes.Assets.versioned("Vendor/css/bootstrap.min.css")" rel="stylesheet" type="text/css">
+		<link href="@routes.Assets.versioned("Vendor/css/style.css")" rel="stylesheet" type="text/css">
+		<meta charset ="utf-8">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default" id="nav-bar">
+			<div class="container">
+				<!--ESTADO HAMBURGUER DEL NAVBAR-->		
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-ppal" id="btn-hm" aria-expanded="false">
+					  <span class="sr-only"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>		
+
+					<a class="pull-left" href="@routes.ProdutoController.Index()" alt="logo"><img  height="100%" width="20%" src="@routes.Assets.versioned("assets/logo.jpg")" alt="Logo"></a>
+				</div>
+
+				<!--ESTADO NORMAL DEL NAVBAR-->
+				<div class="collapse navbar-collapse" id="menu-ppal">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="@routes.CarrinhoController.listaCarrinho()"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">   Carrinho</span></a>
+						</li>
+						
+							@if(session().get("userId") == "0"){
+								<li>
+									<a href="#"><span class="glyphicon"  data-toggle="modal" data-target="#login" aria-hidden="true">login</span></a>
+								</li>
+								@meuHelper.usuarioLogin()
+							} else {
+								<li><a href="#"><span class="glyphicon" aria-hidden="true">Bem Vindo @session().get("userName")</span></a></li>
+								<li><a href="@routes.UsuarioController.Logout"><span class="glyphicon">Logout</span></a></li>
+							}
+	
+					</ul>
+				</div>	
+		
+			</div>	<!--FIN CONTAINER-->					
+		</nav>
+		
+		<div class="container">
+			
+			<div class="row">
+			  @if(flash.containsKey("success")){
+		      <div class="alert alert-success">
+		          @flash.get("success")
+		      </div>
+			  }
+			  @if(flash.containsKey("error")){
+			     <div class="alert alert-danger">
+			         @flash.get("error")
+			     </div>
+			  }
+			  @content
+			</div>
+		</div>	<!--FIN CONTAINER-->
+		<script type="text/javascript" src="@routes.Assets.versioned("js/jquery-2.1.4.min.js")"></script>
+		<script type="text/javascript" src="@routes.Assets.versioned("js/bootstrap.min.js")"></script>
+	</body>
+</html>

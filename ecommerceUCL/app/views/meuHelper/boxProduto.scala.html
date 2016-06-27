@@ -1,0 +1,104 @@
+@(produtos: List[Produto]) 
+		<meta charset ="utf-8">
+<div id="boxvitrine">
+	<div class="row">
+		<!--PAINEIS DE PRODUTOS-->
+		@for(produto <- produtos){
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div id="Vitrine">
+						<img src="@routes.Assets.versioned(produto.imagem)" height="100%"
+							width="100%" alt="camiseta">
+					</div>
+					<h5>@produto.descricao</h5>
+					<a class="btn btn-success" href="@routes.CarrinhoController.addItemAoCarrinho(produto.id)">
+						 R$ @produto.preco<span classç="glyphicon glyphicon-shopping-cart"  aria-hidden="true"></span>
+					</a>
+					<button class="btn btn-warning" data-toggle="modal"
+						data-target="#@produto.id">Detalhes</button>
+
+					<div class="modal fade" id="@produto.id">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4>
+										@produto.descricao
+										<button type="button" class="close" aria-label="Close"
+											data-dismiss="modal">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</h4>
+								</div>
+								<div class="modal-body">
+									<!--ALERTA-->
+									@if(produto.estoque == 0){
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="alert alert-info">
+												<p>
+													<span class="glyphicon glyphicon-exclamation-sign">
+
+													</span> Produto Esgotado
+												</p>
+											</div>
+										</div>
+									</div>
+									}
+
+									<!--IMAGEM E DESCRICAO-->
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<img src="@routes.Assets.versioned(produto.imagem)"
+														height="100%" width="100%" alt="camiseta">
+												</div>
+											</div>
+										</div>
+
+										<div class="col-lg-6">
+											<p>Preço:
+											<h1>
+												@produto.preco R$</strong>
+											</h1>
+										</div>
+									</div>
+									<!--PESTAÑAS-->
+
+									<div class="row">
+										<div class="col-lg-12">
+											<ul class="nav nav-tabs">
+
+												<li class="active"><a href="#descripcion"
+													data-toggle="tab"> Descrição </a></li>
+											</ul>
+
+											<div class="tab-content">
+
+												<div class="tab-pane fade in active" id="descripcion">
+													<p>@produto.sobre</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="modal-footer">
+									<button class="btn btn-primary btn-right" href="@routes.CarrinhoController.addItemAoCarrinho(produto.id)">Add Carrinho
+									</button>
+									<!-- <button type="button" class="close" aria-label="Close" data-dismiss="modal"> -->
+									<button type="button" class="btn btn-danger btn-right"
+										aria-label="Close" data-dismiss="modal">Sair</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		}
+
+	</div>
+</div>

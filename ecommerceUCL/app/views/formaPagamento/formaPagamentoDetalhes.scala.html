@@ -1,0 +1,40 @@
+@(formFormaPagamento: Form[FormaPagamento], id: Long, mensagem: String)
+@import meuHelper._
+@main(mensagem) {
+<div>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	@meuHelper.meuForm("formaPagamento", routes.FormaPagamentoController.salvar(id), "post"){
+		<fieldset>
+		
+		<legend>Forma de Pagamento (@formFormaPagamento("nome").valueOr("Novo"))</legend>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">		
+					@meuHelper.InputText("nome", formFormaPagamento("nome").value, "Nome:")
+				</div>
+			</div>
+		</div>		
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">		
+					@meuHelper.InputText("parcelas", formFormaPagamento("parcelas").value, "Parcelas:")
+				</div>
+			</div>
+		</div>        
+        
+		</fieldset>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<input class="btn btn-lg btn-primary col-md-1" type="submit" value="  Salvar  ">
+					<a class="btn btn-lg btn-danger col-md-1" href="@routes.FormaPagamentoController.lista()">Cancelar</a>
+				</div>
+			</div>
+		</div>			
+	}
+</div>	
+}

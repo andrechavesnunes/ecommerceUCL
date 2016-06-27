@@ -1,0 +1,43 @@
+@(formTransportadora: Form[Transportadora], id: Long, mensagem: String)
+@import meuHelper._
+@main(mensagem) {
+<div>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	@meuHelper.meuForm("transportadora", routes.TransportadoraController.salvar(id), "post"){
+		<fieldset>
+		
+		<legend>Transportadora (@formTransportadora("nome").valueOr("Novo"))</legend>
+				
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">	
+					@meuHelper.InputText("nome", formTransportadora("nome").value, "Nome:")
+				</div>
+			</div>
+		</div>
+				
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">			
+					@meuHelper.InputText("cnpj", formTransportadora("cnpj").value, "CNPJ:")
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<input class="btn btn-lg btn-primary col-md-1" type="submit" value="  Salvar  ">
+						<a class="btn btn-lg btn-danger col-md-1" href="@routes.TransportadoraController.lista()">Cancelar</a>
+					</div>
+				</div>
+			</div>		
+		        
+		</fieldset>
+		
+		        		
+		
+	}
+</div>	
+}

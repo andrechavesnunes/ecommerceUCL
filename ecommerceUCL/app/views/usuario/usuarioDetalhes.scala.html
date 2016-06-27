@@ -1,0 +1,97 @@
+@(formUsuario: Form[Usuario], id: Long, mensagem: String)
+@import meuHelper._
+@main(mensagem) {
+<div>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	@meuHelper.meuForm("Usuario",routes.UsuarioController.salvar(id), "post"){
+		<fieldset>
+		
+		<legend>Usuario (@formUsuario("nome").valueOr("Novo"))</legend>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">		
+					@meuHelper.InputText("nome", formUsuario("nome").value, "Nome:","Text")
+				</div>
+				
+				<div class="col-md-3">		
+					@meuHelper.InputText("cpf", formUsuario("cpf").value, "CPF:","Text")
+				</div>				
+			</div>
+		</div>		
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">		
+					@meuHelper.InputText("logradouro", formUsuario("logradouro").value, "Logradouro:","Text")
+				</div>
+				
+				<div class="col-md-2">		
+					@meuHelper.InputText("numero", formUsuario("numero").value, "Número:","Text")
+				</div>
+			</div>
+		</div>		
+						
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">		
+					@meuHelper.InputText("bairro", formUsuario("bairro").value, "Bairro:","Text")
+				</div>
+				
+				<div class="col-md-4">		
+					@meuHelper.InputText("cidade", formUsuario("cidade").value, "Cidade:","Text")
+				</div>
+								
+			</div>
+		</div>			
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">		
+					@meuHelper.InputText("cep", formUsuario("cep").value, "CEP:","Text")
+				</div>
+				
+				<div class="col-md-1">		
+					@meuHelper.InputText("uf", formUsuario("uf").value, "UF:","Text")
+				</div>
+			</div>
+		</div>		
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">		
+					@meuHelper.InputText("email", formUsuario("email").value, "E-mail:","email")
+				</div>
+			</div>
+		</div>		
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">		
+					@meuHelper.InputText("senha", formUsuario("senha").value, "Senha:","password")
+				</div>
+			</div>
+		</div>
+				
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">		
+					@meuHelper.checkbox("administrativo", formUsuario("administrativo").value, "Administrativo")
+				</div>
+			</div>
+		</div>
+				        
+		</fieldset>
+		
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<input class="btn btn-lg btn-primary col-md-1" type="submit" value="  Salvar  ">
+						<a class="btn btn-lg btn-danger col-md-1" href="@routes.UsuarioController.lista()">Cancelar</a>
+					</div>
+				</div>
+			</div>	
+	}
+</div>	
+}

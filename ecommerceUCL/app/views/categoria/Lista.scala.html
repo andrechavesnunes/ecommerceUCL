@@ -1,0 +1,49 @@
+@(message: String, categoria: List[Categoria])
+@main(message) {
+	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>@message</h1>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered table-hover table-striped">
+					<thead>
+						<tr>
+							<th class="info">ID</th>
+							<th class="info">NOME</th>
+							<th class="info"></th>
+						</tr>
+					</thead>
+
+					<tbody>
+						@for(categoria <- categoria) {
+							<tr>
+								<td class="td_center"><a href="@routes.CategoriaController.detalhes(categoria.id)">@categoria.id</a></td>
+								<td class="td_center"><a href="@routes.CategoriaController.detalhes(categoria.id)">@categoria.nome</a></td>
+								<td class="td_center"><a href="@routes.CategoriaController.delete(categoria.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<a class="btn btn-lg btn-primary" href="/categoria/novo">Novo</a>
+		</div>
+	</div>
+</div>
+	
+}

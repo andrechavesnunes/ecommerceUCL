@@ -1,0 +1,9 @@
+@(message: String, categoria: List[Categoria], produtos: List[Produto])
+@import meuHelper._
+@main(message) {   
+		<meta charset ="utf-8">
+		@meuHelper.divCategorias(categoria)
+		<div class="col-lg-9">    
+			@meuHelper.boxProduto(produtos)
+		</div>
+}

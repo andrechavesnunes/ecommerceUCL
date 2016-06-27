@@ -1,0 +1,118 @@
+@(formProduto: Form[Produto], id: Long, mensagem: String, categoria:List[Categoria], fornecedor:List[Fornecedor])
+@import meuHelper._
+@import helper._
+@main(mensagem) {
+<div>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	@meuHelper.meuForm("Produto",routes.ProdutoController.salvar(id), "post", "multipart/form-data"){
+		<fieldset>
+		
+		<legend>Produto (@formProduto("descricao").valueOr("Novo"))</legend>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">		
+					<div class="form-group">
+					</select>
+				    <label>Categoria: </label>
+				    <select class="form-control" name="categoria.id" required>
+				    	@for(categoria <- categoria){
+				        <option value="@(categoria.id)" @{if (formProduto("categoria.id") == categoria.id) "selected" else ""}>@(categoria.nome)</option>
+				      	}
+				    </select>
+				    </div>
+				</div>
+			</div>
+		</div>	    
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">	    
+					<div class="form-group">
+					</select>
+				    <label>Fornecedor: </label>
+				    <select class="form-control" name="fornecedor.id" required>
+				    	@for(fornecedor <- fornecedor){
+				        <option value="@(fornecedor.id)" @{if (formProduto("fornecedor.id") == fornecedor.id) "selected" else ""}>@(fornecedor.nome)</option>
+				      	}
+				    </select>
+				    </div>
+				</div>
+			</div>
+		</div>	    
+	    		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					@meuHelper.InputText("descricao", formProduto("descricao").value, "Descricao:","Text")
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="form-group">
+					  <label for="sobre">Sobre:</label>
+					  <textarea class="form-control" rows="5" name="sobre" id="sobre">@formProduto("sobre").value</textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">						
+					@meuHelper.InputText("preco", formProduto("preco").value, "Preço:","Text")
+				</div>
+				<div class="col-md-4">		
+					@meuHelper.InputText("estoque", formProduto("estoque").value, "Estoque:","Text")
+				</div>
+			</div>
+		</div>			
+		
+		<div class="container">
+				<div class="row">
+					<div class="col-md-12">		
+						<div class="form-group">
+						    <label for="exampleInputFile">Arquivos de Imagem</label>
+						    <input class="btn btn-default" type="file" name="imagem" id="imagem" value ="formProduto("imagem")" accept="image/*">
+						    <p class="help-block"></p>
+						</div>
+						<br>
+					</div>
+				</div>
+			</div>	    
+			
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">		
+						<div class="form-group">
+						    <label for="exampleInputFile">Arquivos de Imagem do Slider</label>
+						    <input class="btn btn-default" type="file" name="imagemBanner" id="imagem" value ="formProduto("imagemBanner")" accept="image/*">
+						    <p class="help-block">Arquivos para o Slider - Imagens Grandes</p>
+						</div>
+						<br>
+					</div>
+				</div>
+			</div>   
+		 <input id="gift_Taken" type="checkbox" checked="@formProduto("iscarrousel")" name="@formProduto("iscarrousel").name" ${@formProduto("iscarrousel") ? 'true':'false'}  />
+		</fieldset>
+		
+		<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<input class="btn btn-lg btn-primary col-md-1" type="submit" value="  Salvar  ">
+						<a class="btn btn-lg btn-danger col-md-1" href="@routes.ProdutoController.lista()">Cancelar</a>
+					</div>
+				</div>
+			</div>		 		
+		
+	}
+</div>
+
+
+	
+}
