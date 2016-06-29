@@ -7,6 +7,14 @@ import java.util.List;
 import models.Categoria;
 import models.Fornecedor;
 import models.Produto;
+import play.mvc.Http.MultipartFormData;
+import play.mvc.Http.MultipartFormData.FilePart;
+import play.mvc.Result;
+import play.data.DynamicForm;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 public class ProdutoController extends Controller{
 	private final Form<Produto> formProduto = Form.form(Produto.class);
@@ -18,7 +26,34 @@ public class ProdutoController extends Controller{
 		List<Produto> produto = Produto.find.all();
 		List<Categoria> categorias = Categoria.find.all();
 		
-		return ok(views.html.produto.produtoLista.render("Produto",produto,categorias));	
+		return ok(views.html.produto.produtoLista.render("Produto",produto));	
+	}
+	
+	public Result Index()
+	{
+		List<Categoria> categorias = Categoria.find.all();
+		List<Produto> produtos = Produto.find.all();
+		
+		return ok(views.html.index.render("Produto",categorias,produtos));	
+	}
+	
+	public Result Vitrine(Long id)
+	{
+		List<Categoria> categorias = Categoria.find.all();
+		List<Produto> produtos = Produto.find.where().eq("Categoria_ID",id).findList();
+		return ok(views.html.produto.vitrine.render("Produto",categorias,produtos));	
+	}
+	public Result VitrineStr()
+	{
+		DynamicForm dynamicForm = Form.form().bindFromRequest();
+		
+		String input = dynamicForm.get("search");
+		List<Categoria> categorias = Categoria.find.all();
+		List<Produto> produtos = Produto.find
+										.where()
+										.like("descricao","%"+input+"%")
+										.findList();
+		return ok(views.html.produto.vitrine.render("Produto",categorias,produtos));	
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
@@ -38,12 +73,13 @@ public class ProdutoController extends Controller{
 			
 		Produto produto = formEnviado.get();
 		Produto produtoOld = Produto.find.byId(id);
+		produto.imagem =  this.sendUpload("imagem");	
+		produto.imagemBanner = this.sendUpload("imagemBanner");
 		if(produtoOld != null && produto != null){
 			produto.update();
 		} else {
 			produto.save();
 		}
-		
 		flash("success", String.format("Salvo com sucesso!!!"));
 		return redirect(routes.ProdutoController.lista());
 	}
@@ -81,4 +117,29 @@ public class ProdutoController extends Controller{
 		return redirect(routes.ProdutoController.lista());
 		
 	}
+	 //----------------------------------------------------------------------------------------------------------
+    public String sendUpload(String param) {
+		 MultipartFormData body = request().body().asMultipartFormData();
+		 FilePart picture = body.getFile(param);
+		 String newPath = "";
+		 String ret = "";
+		 if(picture != null) {
+			  String fileName = picture.getFilename();
+			  String contentType = picture.getContentType();
+			  File file = picture.getFile();
+			  
+			  String appDir = System.getProperty("user.dir");
+			  
+			  newPath = appDir + File.separator + "public" + File.separator + "Vendor" 
+			  + File.separator + "images" + File.separator + fileName;
+			  ret = "Vendor" + "\\" + "images" + "\\" + fileName;
+			  File newFile = new File(newPath);
+      try {
+          Files.move(file.toPath(), newFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+      } catch(IOException e) {
+    	  e.printStackTrace();
+      }
+    }
+     return ret;
+    }
 }

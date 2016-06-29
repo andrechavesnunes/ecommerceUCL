@@ -1,0 +1,32 @@
+@(formCarrinho:Form[Carrinho],mensagem:String,formasPagamento:List[FormaPagamento],Transportadoras:List[Transportadora],itensCarrinho:List[ItensCarrinho])
+@import meuHelper._
+@main(mensagem) {
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label>Forma de Pagamento: </label> 
+					<select class="form-control"
+						name="Carrinho.FormaPagamento.id" required> 
+						@for(FormaPagamento <- formasPagamento){
+							<option value="@(FormaPagamento.id)"
+								@{if (formCarrinho("Carrinho.FormaPagamento.id") ==FormaPagamento.id) "selected" else ""}>@(FormaPagamento.nome)</option>
+						}
+					</select>
+				</div>
+			</div>
+			<div class="col-md-4">
+					<div class="form-group">
+						 <label>Transportadora: </label> <select class="form-control"
+						<select name="Carrinho.Transportadora.id" required> 
+							@for(Transportadora <- Transportadoras){
+							<option value="@(Transportadora.id)"
+								@{if (formCarrinho("Carrinho.Transportadora.id") ==Transportadora.id) "selected" else ""}>@(Transportadora.nome)</option>
+							}
+						</select>
+					</div>
+			</div>
+		</div>	
+	</div>	
+	@meuHelper.boxCart(itensCarrinho)
+}

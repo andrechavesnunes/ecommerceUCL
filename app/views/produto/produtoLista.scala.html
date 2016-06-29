@@ -1,16 +1,15 @@
-@(mensagem: String, produto: List[Produto],categoria:List[Categoria]) 
-@main(mensagem,categoria){
+@(mensagem: String, produto: List[Produto]) 
+@main(mensagem){
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<div class="section">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h1>@mensagem</h1>
-			</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>@mensagem</h1>
 		</div>
 	</div>
 </div>
+
 <div class="section">
 	<div class="container">
 		<div class="row">
@@ -31,13 +30,13 @@
 					<tbody>
 						@for(produto <- produto) {
 						<tr>
-							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.id</a></td>
+							<td class="td_center"><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.id</a></td>
 							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.descricao</a></td>
-							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.preco</a></td>
-							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.categoria.nome</a></td>
-							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.fornecedor.nome</a></td>
-							<td><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.estoque</a></td>
-							<td><a href="@routes.ProdutoController.delete(produto.id)"><input
+							<td class="td_right"><a href="@routes.ProdutoController.detalhes(produto.id)" id="campoMoeda">@produto.preco</a></td>
+							<td class="td_center"><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.categoria.nome</a></td>
+							<td class="td_center"><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.fornecedor.nome</a></td>
+							<td class="td_center"><a href="@routes.ProdutoController.detalhes(produto.id)">@produto.estoque</a></td>
+							<td class="td_center"><a href="@routes.ProdutoController.delete(produto.id)"><input
 									type="submit" class="btn btn-primary" value="Remover"></a></td>
 						</tr>
 						}
@@ -47,14 +46,12 @@
 		</div>
 	</div>
 </div>
-<div class="section">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<a class="btn btn-lg btn-primary" href="/produto/novo">Novo</a>
-			</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<a class="btn btn-lg btn-primary" href="/produto/novo">Novo</a>
 		</div>
 	</div>
 </div>
-
 }

@@ -29,10 +29,6 @@ public class ItensCarrinho extends Model {
 	@Required
 	public Produto Produto;
 	
+	public static Finder<Long,ItensCarrinho> find = new Finder<Long,ItensCarrinho>(ItensCarrinho.class);
 	
-	
-	
-	
-	
-
 }

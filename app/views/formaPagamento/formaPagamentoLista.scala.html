@@ -1,32 +1,59 @@
-@(mensagem: String, formaPagamento: List[FormaPagamento],categoria:List[Categoria])
+@(mensagem: String, formaPagamento: List[FormaPagamento])
 
-@main(mensagem,categoria){
+@main(mensagem){
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-	@meuHelper.cabecalhoPagina(mensagem,"#","")
-<div>
-	<table class="pure-table">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>NOME</th>
-				<th>PARCELAS</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-		@for(formaPagamento <- formaPagamento) {
-			<tr>
-				<td><a href="@routes.FormaPagamentoController.detalhes(formaPagamento.id)">@formaPagamento.id</a></td>	
-				<td><a href="@routes.FormaPagamentoController.detalhes(formaPagamento.id)">@formaPagamento.nome</a></td>
-				<td><a href="@routes.FormaPagamentoController.detalhes(formaPagamento.id)">@formaPagamento.parcelas</a></td>
-				<td><a href="@routes.FormaPagamentoController.remover(formaPagamento.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
-			</tr>			
-		}
-		</tbody>
-	</table>
-	<a href="/formaPagamento/novo" class="button">Novo</a>
+
+<div class="container">
+	<div class="row">	
+		<div class="col-md-12">
+			<h1>@mensagem</h1>
+		</div>
+	</div>
 </div>
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered table-hover table-striped">
+					<thead>
+						<tr>
+							<th class="info">ID</th>
+							<th class="info">NOME</th>
+							<th class="info">PARCELAS</th>
+							<th class="info"></th>
+						</tr>
+					</thead>
+
+					<tbody>
+						@for(formaPagamento <- formaPagamento) {
+						<tr>
+							<td><a
+								href="@routes.FormaPagamentoController.detalhes(formaPagamento.id)">@formaPagamento.id</a></td>
+							<td><a
+								href="@routes.FormaPagamentoController.detalhes(formaPagamento.id)">@formaPagamento.nome</a></td>
+							<td><a
+								href="@routes.FormaPagamentoController.detalhes(formaPagamento.id)">@formaPagamento.parcelas</a></td>
+							<td><a
+								href="@routes.FormaPagamentoController.remover(formaPagamento.id)"><input
+									type="submit" class="btn btn-primary" value="Remover"></a></td>
+						</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<a class="btn btn-lg btn-primary" href="/formapagamento/novo">Novo</a>
+		</div>
+	</div>
+</div>
+
 
 }

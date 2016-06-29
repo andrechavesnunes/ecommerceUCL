@@ -1,26 +1,71 @@
 @(formfornecedor: Form[Fornecedor], id: Long, mensagem: String)
 @import meuHelper._
-@mainAdm(mensagem) {
+@main(mensagem) {
 <div>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-	@meuHelper.cabecalhoPagina(mensagem,"#","")
-	@meuHelper.meuFormPure("Fornecedor",routes.FornecedorController.salvar(id), "post"){
+
+	@meuHelper.meuForm("Fornecedor",routes.FornecedorController.salvar(id), "post"){
 		<fieldset>
 		
 		<legend>Fornecedor (@formfornecedor("id").valueOr("Novo"))</legend>
 		
-		@meuHelper.InputText("nome", formfornecedor("nome").value, "Nome:")
-		@meuHelper.InputText("cnpj", formfornecedor("cnpj").value, "CNPJ:")
-		@meuHelper.InputText("ie", formfornecedor("ie").value, "IE:")
-		@meuHelper.InputText("endereco", formfornecedor("endereco").value, "Endereço:")
-		@meuHelper.InputText("cidade", formfornecedor("cidade").value, "Cidade:")
-		@meuHelper.InputText("cidade", formfornecedor("uf").value, "UF:")
-		@meuHelper.InputText("uf", formfornecedor("bairro").value, "Bairro:")        
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">		
+					@meuHelper.InputText("nome", formfornecedor("nome").value, "Nome:")
+				</div>
+			</div>
+		</div>					
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">		
+					@meuHelper.InputText("cnpj", formfornecedor("cnpj").value, "CNPJ:")
+				</div>
+				<div class="col-md-4">		
+					@meuHelper.InputText("ie", formfornecedor("ie").value, "IE:")
+				</div>				
+			</div>
+		</div>
+				
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">		
+					@meuHelper.InputText("endereco", formfornecedor("endereco").value, "Endereço:")
+				</div>
+			</div>
+		</div>
+				
+		<div class="container">
+			<div class="row">
+			
+				<div class="col-md-4">		
+					@meuHelper.InputText("bairro", formfornecedor("bairro").value, "Bairro:")        
+				</div>
+							
+				<div class="col-md-3">		
+					@meuHelper.InputText("cidade", formfornecedor("cidade").value, "Cidade:")
+				</div>
+				
+				<div class="col-md-1">		
+					@meuHelper.InputText("uf", formfornecedor("uf").value, "UF:")
+				</div>
+				
+								
+			</div>
+		</div>	
+		
 		</fieldset>
 		
-		<input type="submit" class="button" value="Salvar">
-		<a href="@routes.FornecedorController.lista()" class="button"> Cancelar</a>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<input class="btn btn-lg btn-primary col-md-1" type="submit" value="  Salvar  ">
+					<a class="btn btn-lg btn-danger col-md-1" href="@routes.FornecedorController.lista()">Cancelar</a>
+				</div>
+			</div>
+		</div>	
+		
 	}
 </div>	
 }

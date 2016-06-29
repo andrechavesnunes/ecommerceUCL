@@ -18,7 +18,7 @@ public class FormaPagamentoController extends Controller {
 		List<FormaPagamento> formaPagamento = FormaPagamento.find.all();
 		List<Categoria> categorias = Categoria.find.all();
 		
-		return ok(views.html.formaPagamento.formaPagamentoLista.render("Formas de Pagamento",formaPagamento,categorias));
+		return ok(views.html.formaPagamento.formaPagamentoLista.render("Formas de Pagamento",formaPagamento));
 	
 	}
 	

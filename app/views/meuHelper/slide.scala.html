@@ -1,16 +1,41 @@
-@(link: String, alt: String, titulo: String, span: String, subtitulo: String, descricao: String)
+@(produtos: List[Produto])
+@import java.math.BigInteger; var aux=0;
+	
+	<meta charset ="utf-8">
+		<div id="carrusel" class="carousel slide" data-ride="carousel">
+		
+		  <ol class="carousel-indicators">
+		    @for(index <- 0 until produtos.size){
+		    	@if(produtos.get(index).iscarrousel){
+		    		<li data-target="#carrusel" data-slide-to="@index" class="active"></li>
+		    	}
+		    }
+		  </ol>
 
-                  <div id="slide-1" class="slide">
-                    <div class="slider-img">
-                      <a href="preview.html"><img src="images/slide-1-image.png" alt="learn more" /></a>
-                    </div>
-                    <div class="slider-text">
-                      <h1>Clearance<br><span>SALE</span></h1>
-                      <h2>UPTo 20% OFF</h2>
-                      <div class="features_list">
-                        <h4>Get to Know More About Our Memorable Services Lorem Ipsum is simply dummy text</h4>
-                      </div>
-                      <a href="preview.html" class="button">Compre Agora</a>
-                    </div>
-                    <div class="clear"></div>
-                  </div>
+		  <div class="carousel-inner" role="listbox">
+			@for(produto <- produtos){
+				@if(produto.iscarrousel){
+					@if(aux == 0){
+						<div class="item active">
+						<img src="@routes.Assets.versioned(produto.imagemBanner)" height="100%" width="100%" alt="@produto.descricao">
+						</div>
+						@(aux = 1)
+					} else {
+						<div class="item">
+						<img src="@routes.Assets.versioned(produto.imagemBanner)" height="100%" width="100%" alt="@produto.descricao">
+						</div>
+					}
+				}
+			}
+		  </div>
+
+		  
+		  <a class="left carousel-control" href="#carrusel" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="right carousel-control" href="#carrusel" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>

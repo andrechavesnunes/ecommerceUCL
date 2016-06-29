@@ -4,7 +4,7 @@
 
 #----------------------------------------------------------------------------------------------------
 # Home page
-GET    /                               controllers.TransportadoraController.lista()
+GET    /                                controllers.ProdutoController.Index
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               	controllers.Assets.versioned(path="/public", file: Asset)
@@ -17,48 +17,60 @@ GET		/transportadora/novo			controllers.TransportadoraController.novaTransportad
 GET 	/transportadora/:id				controllers.TransportadoraController.detalhes(id: Long)
 POST 	/transportadora/				controllers.TransportadoraController.salvar(id: Long)
 GET		/transportadora/remover/:id 	controllers.TransportadoraController.remover(id: Long)
+#----------------------------------------------------------------------------------------------------
+#Categoria
+GET     /carrinho						controllers.CarrinhoController.listaCarrinho()
+GET     /carrinho/add/:id				controllers.CarrinhoController.addItemAoCarrinho(id : Long)
+GET     /carrinho/remove/:id			controllers.CarrinhoController.remItemDoCarrinho(id : Long)
+POST    /carrinho/qtd/				    controllers.CarrinhoController.alterQtdCarrinho(id : Long)
+GET     /carrinho/checkin	    	    controllers.CarrinhoController.checkin()
+GET     /carrinho/salvar	    	    controllers.CarrinhoController.salvar()
 
 #----------------------------------------------------------------------------------------------------
 #Categoria
 
-GET     /Categoria                  	controllers.CategoriaController.lista()
-GET     /Categoria/Novo           		controllers.CategoriaController.Novo()
-POST    /Categoria                		controllers.CategoriaController.salvar(id: Long)
-GET     /Categoria/Detalhe/:id	  		controllers.CategoriaController.detalhes(id: Long)	
-GET     /Categoria/delete/:id	  		controllers.CategoriaController.delete(id: Long)
+GET     /categoria                  	controllers.CategoriaController.lista()
+GET     /categoria/novo           		controllers.CategoriaController.Novo()
+POST    /categoria                		controllers.CategoriaController.salvar(id: Long)
+GET     /categoria/detalhe/:id	  		controllers.CategoriaController.detalhes(id: Long)	
+GET     /categoria/delete/:id	  		controllers.CategoriaController.delete(id: Long)
 
 #----------------------------------------------------------------------------------------------------
 #Forma de Pagamento
 
-GET		/formaPagamento					controllers.FormaPagamentoController.lista()
-GET		/formaPagamento/novo			controllers.FormaPagamentoController.novaFormaPagamento
-GET		/formaPagamento/:id				controllers.FormaPagamentoController.detalhes(id: Long)
-POST	/formaPagamento/				controllers.FormaPagamentoController.salvar(id : Long)
-GET 	/formaPagamento/remover/:id		controllers.FormaPagamentoController.remover(id: Long)
+GET		/formapagamento					controllers.FormaPagamentoController.lista()
+GET		/formapagamento/novo			controllers.FormaPagamentoController.novaFormaPagamento
+GET		/formapagamento/:id				controllers.FormaPagamentoController.detalhes(id: Long)
+POST	/formapagamento/				controllers.FormaPagamentoController.salvar(id : Long)
+GET 	/formapagamento/remover/:id		controllers.FormaPagamentoController.remover(id: Long)
 
 #----------------------------------------------------------------------------------------------------
 #Usuário
 
-GET		/usuario						controllers.UsuarioController.lista()
+GET		/usuario     					controllers.UsuarioController.lista()
 GET 	/usuario/novo					controllers.UsuarioController.novoUsuario
+GET 	/usuario/logout  	            controllers.UsuarioController.Logout
 GET		/usuario/:id					controllers.UsuarioController.detalhes(id: Long)
-POST	/usuario/						controllers.UsuarioController.salvar(id: Long)
+POST	/usuario                        controllers.UsuarioController.salvar(id: Long)
+POST	/usuario/login	            	controllers.UsuarioController.Autenticar()
 GET		/usuario/remover/:id			controllers.UsuarioController.remover(id : Long)
 
 #----------------------------------------------------------------------------------------------------
 
 #Fornecedor
 
-GET     /Fornecedor                controllers.FornecedorController.lista()
-GET     /Fornecedor/Novo           controllers.FornecedorController.Novo()
-POST    /Fornecedor                controllers.FornecedorController.salvar(id: Long)
-GET     /Fornecedor/Detalhe/:id	   controllers.FornecedorController.detalhes(id: Long)	
-GET     /Fornecedor/delete/:id	   controllers.FornecedorController.delete(id: Long)
+GET     /fornecedor                controllers.FornecedorController.lista()
+GET     /fornecedor/novo           controllers.FornecedorController.Novo()
+POST    /fornecedor                controllers.FornecedorController.salvar(id: Long)
+GET     /fornecedor/detalhe/:id	   controllers.FornecedorController.detalhes(id: Long)	
+GET     /fornecedor/delete/:id	   controllers.FornecedorController.delete(id: Long)
 
 #----------------------------------------------------------------------------------------------------
 
 #Produto
 GET     /produto                	controllers.ProdutoController.lista()
+GET     /produto/vitrine            controllers.ProdutoController.Vitrine(id: Long)
+POST     /produto/search            controllers.ProdutoController.VitrineStr()
 GET     /produto/novo           	controllers.ProdutoController.Novo()
 POST    /produto                	controllers.ProdutoController.salvar(id: Long)
 GET     /produto/detalhe/:id		controllers.ProdutoController.detalhes(id: Long)	

@@ -1,17 +1,16 @@
-@(mensagem: String, usuario: List[Usuario],categoria:List[Categoria]) 
-@main(mensagem,categoria){
+@(mensagem: String, usuario: List[Usuario]) 
+@main(mensagem){
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<div class="section">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h1>@mensagem</h1>
-			</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>@mensagem</h1>
 		</div>
 	</div>
 </div>
+
 <div class="section">
 	<div class="container">
 		<div class="row">
@@ -31,12 +30,12 @@
 					<tbody>
 						@for(usuario <- usuario) {
 						<tr>
-							<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.id</a></td>
+							<td class="td_center"><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.id</a></td>
 							<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.nome</a></td>
-							<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.cpf</a></td>
+							<td class="td_center"><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.cpf</a></td>
 							<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.email</a></td>
-							<td><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.administrativo</a></td>
-							<td><a href="@routes.UsuarioController.remover(usuario.id)"><input type="submit" class="btn btn-primary" value="Remover"></a></td>
+							<td class="td_center"><a href="@routes.UsuarioController.detalhes(usuario.id)">@usuario.administrativo</a></td>
+							<td ><a href="@routes.UsuarioController.remover(usuario.id)"><input	type="submit" class="btn btn-primary" value="Remover"></a></td>
 						</tr>
 						}
 					</tbody>
@@ -45,14 +44,14 @@
 		</div>
 	</div>
 </div>
-<div class="section">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<a class="btn btn-lg btn-primary"  href="/usuario/novo">Novo</a>
-			</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<a class="btn btn-lg btn-primary" href="/usuario/novo">Novo</a>
 		</div>
 	</div>
 </div>
+
 
 }

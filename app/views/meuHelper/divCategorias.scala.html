@@ -1,19 +1,25 @@
-
-<!--             fazer o for das categorias nesta view -->
-            <div class="categories">
-              <ul>
-                <h3>Categorias</h3>
-                <li><a href="#">Mobile Phones</a></li>
-                <li><a href="#">Desktop</a></li>
-                <li><a href="#">Laptop</a></li>
-                <li><a href="#">Accessories</a></li>
-                <li><a href="#">Software</a></li>
-                <li><a href="#">Sports &amp; Fitness</a></li>
-                <li><a href="#">Footwear</a></li>
-                <li><a href="#">Jewellery</a></li>
-                <li><a href="#">Clothing</a></li>
-                <li><a href="#">Home Decor &amp; Kitchen</a></li>
-                <li><a href="#">Beauty &amp; Healthcare</a></li>
-                <li><a href="#">Toys, Kids &amp; Babies</a></li>
-              </ul>
-            </div>
+@(categorias: List[Categoria])
+<div class="col-md-3">
+	<div class="input-group" id="busqueda">
+	<meta charset ="utf-8">
+	<form class="form-signin" name="LoginForm" action="@routes.ProdutoController.VitrineStr()" method="post"> 
+    	<input type="text" class="form-control" name= "search" type="submit" placeholder="Buscar por Descrição">
+	</form>
+	</div>
+	<!--PARTE LATERAL IZQUIERDA-->
+	<!--LISTA DE CATEGORIAS-->
+	<div id="categorias" class="hidden-md hidden-sm hidden-xs">
+		</br>
+		<ul class="list-group">
+			<a href="#" class="list-group-item active">
+				Categorias
+			</a>
+			@for(categoria <- categorias){
+			<a href="@routes.ProdutoController.Vitrine(categoria.id)" class="list-group-item">
+				@categoria.nome
+			</a>
+			}
+		</ul>					
+		
+	</div>
+</div>

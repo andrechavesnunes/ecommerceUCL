@@ -1,15 +1,30 @@
 @(formCategoria: Form[Categoria],id:Long,mensagem:String)
 @import meuHelper._
-@mainAdm(mensagem) {
+@main(mensagem) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-	@meuHelper.cabecalhoPagina(mensagem,"#","")
-	@meuHelper.meuFormPure("Categoria",routes.CategoriaController.salvar(id),"post") {
+
+	@meuHelper.meuForm("Categoria",routes.CategoriaController.salvar(id),"post") {
 		<fieldset>
-		<legend>Categoria (@formCategoria("Id").valueOr("Novo"))</legend>
-			@meuHelper.InputText("Nome", formCategoria("nome").value, "Nome:")
+		<legend>Categoria (@formCategoria("id").valueOr("Novo"))</legend>
+			
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">			
+					@meuHelper.InputText("nome", formCategoria("nome").value, "Nome:")
+				</div>
+			</div>
+		</div>					
+					
 		</fieldset>
-		<input type="submit" class="button" value="Salvar">
-		<a href="@routes.CategoriaController.lista()" class="button"> Cancelar</a>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<input class="btn btn-lg btn-primary col-md-1" type="submit" value="  Salvar  ">
+					<a class="btn btn-lg btn-danger col-md-1" href="@routes.CategoriaController.lista()">Cancelar</a>
+				</div>
+			</div>
+		</div>
+		
 	}
 }

@@ -50,12 +50,14 @@ create table itens_carrinho (
 create table produto (
   id                        bigint auto_increment not null,
   descricao                 varchar(255),
-  sobre                     varchar(255),
+  sobre                     varchar(1000),
   preco                     double,
   imagem                    varchar(255),
+  imagem_banner             varchar(255),
   categoria_id              bigint,
   fornecedor_id             bigint,
   estoque                   varchar(255),
+  iscarrousel               tinyint(1) default 0,
   constraint pk_produto primary key (id))
 ;
 

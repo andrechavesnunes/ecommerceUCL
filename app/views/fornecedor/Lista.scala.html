@@ -1,38 +1,65 @@
-@(message: String,fornecedores:List[Fornecedor],categoria:List[Categoria])
-@main(message,categoria) {
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-	@meuHelper.cabecalhoPagina(message,"#","")
-	<div class="pure-table">
-		<table>
-			<thead>
-				<tr>
-					<th>Código</th>
-					<th>Nome</th>
-					<th>CNPJ</th>
-					<th>IE</th>
-					<th>Bairro</th>
-					<th>Cidade</th>
-					<th>Endereco</th>
-					<th>UF</th>
-				</tr>
-			</thead>
-			<tbody>
-			@for(fornecedor <- fornecedores) {
-				<tr>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.id</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.nome</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.cnpj</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.ie</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.bairro</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.cidade</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.endereco</a></td>
-					<td><a href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.uf</a></td>
-				<td><a href="@routes.FornecedorController.delete(fornecedor.id)" ><input type="submit" class="btn btn-primary" value="Remover"></a></td>
-				</tr>
-			}
-			</tbody>
-		</table>
+@(message: String,fornecedores:List[Fornecedor])
+@main(message) {
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>@message</h1>
+		</div>
 	</div>
-	<a href="/Fornecedor/Novo" class="button">Novo</a>
+</div>
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered table-hover table-striped">
+					<thead>
+						<tr>
+							<th class="info">ID</th>
+							<th class="info">NOME</th>
+							<th class="info">CNPJ</th>
+							<th class="info">INSC.EST.</th>
+							<th class="info">CIDADE</th>
+							<th class="info">UF</th>
+							<th class="info"></th>
+						</tr>
+					</thead>
+
+					<tbody>
+						@for(fornecedor <- fornecedores) {
+						<tr>
+							<td class="td_center"><a
+								href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.id</a></td>
+							<td><a
+								href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.nome</a></td>
+							<td class="td_center"><a
+								href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.cnpj</a></td>
+							<td class="td_center"><a
+								href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.ie</a></td>
+							<td class="td_center"><a
+								href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.cidade</a></td>
+							<td class="td_center"><a
+								href="@routes.FornecedorController.detalhes(fornecedor.id)">@fornecedor.uf</a></td>
+							<td class="td_center"><a
+								href="@routes.FornecedorController.delete(fornecedor.id)"><input
+									type="submit" class="btn btn-primary" value="Remover"></a></td>
+						</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<a class="btn btn-lg btn-primary" href="/fornecedor/novo">Novo</a>
+		</div>
+	</div>
+</div>
 }
